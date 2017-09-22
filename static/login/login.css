@@ -1,0 +1,49 @@
+.loginInputs{
+    display: inline-block;
+}
+
+td {
+    padding: 10px;
+}
+
+.loginBtns{
+    display: inline-block;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.floatClear {
+    clear: both;
+}
+
+.loginBtn{
+    float: left;
+    margin-right: 100px;
+}
+
+.regBtn{
+    float: left;
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+
+body{
+    margin: 0 0 30px;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+.disabled{
+    pointer-events: none;
+    opacity: 1;
+}

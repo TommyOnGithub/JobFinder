@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initialscale=1" name="viewport">
+    <title>Job Finder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link href="/static/register/register.css" rel="stylesheet">
+</head>
+<body role="document">
+<div class="title text-center">
+    <h1>Register</h1>
+</div>
+<br/>
+<br/>
+<form method=post action="">
+    <div class="text-center">
+        <div class="regInputs">
+            <table>
+                {% set counter = 0 %}
+                {% for field in form %}
+                    {% if counter == 0 or counter == 3%}
+                        <tr>
+                    {% endif %}
+                        <td>{{ field.label }}</td>
+                        <td>{{ field(size=20) }}</td>
+                        <td>
+                            {% if field.errors %}
+                            <ul class=errors>
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </td>
+                    {% if counter == 2 or counter == 5%}
+                        </tr>
+                    {% endif %}
+                    {% set counter = counter + 1 %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="text-center">
+        <div class="regBtn">
+            <input type="submit" class="btn btn-primary btn-lg regStretch" value="Create Account">
+        </div>
+    </div>
+</form>
+<br/>
+<br/>
+<div class="text-center">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    Password Strength Error:
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+<footer>
+    <div class="text-center">
+        <p>Job Finder</p>
+    </div>
+</footer>
+</body>
+</html>

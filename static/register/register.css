@@ -1,0 +1,37 @@
+td {
+    padding: 10px;
+}
+
+.regInputs{
+    display: inline-block;
+}
+
+.regBtn{
+    text-align: center;
+    padding-top: 40px;
+}
+
+.regStretch{
+    width: 300px;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+}
+
+body{
+    margin: 0 0 30px;
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+.flashes{
+    margin-top: 20px;
+}
