@@ -27,7 +27,7 @@ class User(db.Model):
         return check_password_hash(self.pwhash, pw)
 
     def set_password(self, pw):
-        self.pwhash = generate_password_hash(pw)
+        self.pwhash = generate_password_hash(pw, method="pbkdf2:sha256", salt_length=8)
 
     def is_authenticated(self):
         return True
