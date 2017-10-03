@@ -28,4 +28,58 @@
 	<requirements>
 		<skill></skill>
 	</requirements>
+	<salary></salary>
+</job>
+<job>
+	<title>Software Applications Developer</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+	<salary>$98,260</salary>
+</job>
+<job>
+	<title>Web Developer</title>
+	<requirements>
+		<skill>HTML</skill>
+		<skill>CSS</skill>
+		<skill>JavaScript</skill>
+		<skill>Design</skill>
+		<skill>Web Frameworks</skill>
+	</requirements>
+	<salary>$64,970</salary>
+</job>
+<job>
+	<title>Database Administrator</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+	<salary>$81,710</salary>
+</job>
+<job>
+	<title>Software QA Engineer</title>
+	<requirements>
+		<skill>Java</skill>
+		<skill>Python</skill>
+		<skill>C++</skill>
+		<skill>Software Optimization</skill>
+		<skill>Unit Testing</skill>
+	</requirements>
+	<salary>$85,240</salary>
+</job>
+<job>
+	<title>Android Software Developer</title>
+	<requirements>
+		<skill>Java</skill>
+		<skill>Model/View/Controller Knowledge</skill>
+		<skill></skill>
+	</requirements>
+	<salary>$117,000</salary>
+</job>
+<job>
+	<title>Software Applications Developer</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+	<salary></salary>
+</job>
 </cs_occuptions>
