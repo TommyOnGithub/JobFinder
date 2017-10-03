@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs_occuptions>
+<job>
+	<title>Systems Engineer</title>
+	<requirements>
+		<skill></skill>
+		<skill></skill>
+		<skill></skill>
+	</requirements>
+	<salary></salary>
+</job>
+<job>
+	<title>Software Systems Engineer</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+	<salary></salary>
+</job>
+<job>
+	<title>Solutions Architect</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+	<salary></salary>
+</job>
+<job>
+	<title>Programmer Analyst</title>
+	<requirements>
+		<skill></skill>
+	</requirements>
+</cs_occuptions>
