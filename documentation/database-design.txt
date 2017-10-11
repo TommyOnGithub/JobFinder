@@ -1,0 +1,23 @@
+--A description of the structure and function of the database--
+
+There are 6 tables in the database so far; 3 tables for the users
+and 3 tables for the functionality.
+
+The User table is the master table for all the registered members
+of the site. It includes their real name, username, and password.
+Along with it are the Faculty and Admin tables, which list users
+which have special access to the site. Users in the Faculty table
+can view student profiles and match students to jobs and degrees.
+Users in the Admin table can view and edit other profiles on the
+site.
+
+The Student, Job, and Degree table provide the data for the main
+functionality of the site. Each table has a column for each skill we
+have identified, and a number from 1 to 5. For the Student table,
+it indicates their strength in that skill. For Degree, it's whether
+the degree teaches that skill. For Job, it indicates how heavily
+that job requires that skill. Our matching algorithm will crunch
+the skills columns of each of these tables.
+
+Additionally, the Student table documents some basic information
+about the student.
