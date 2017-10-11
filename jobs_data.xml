@@ -3,37 +3,52 @@
 <job>
 	<title>Systems Engineer</title>
 	<requirements>
-		<skill></skill>
-		<skill></skill>
-		<skill></skill>
+		<skill>Object Oriented Development</skill>
+		<skill>Coding Experience</skill>
+		<skill>Software Engineering Best Practices</skill>
 	</requirements>
-	<salary></salary>
+	<salary>$88,717</salary>
 </job>
 <job>
 	<title>Software Systems Engineer</title>
 	<requirements>
-		<skill></skill>
+		<skill>Operating Systems</skill>
+		<skill>Hardware Systems</skill>
+		<skill>Written and Verbal Communication</skill>
 	</requirements>
-	<salary></salary>
+	<salary>$99,931</salary>
 </job>
 <job>
 	<title>Solutions Architect</title>
 	<requirements>
-		<skill></skill>
+		<skill>Written and Verbal Communication</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Software Engineering Best Practices</skill>
 	</requirements>
-	<salary></salary>
+	<salary>$125,000</salary>
 </job>
 <job>
 	<title>Programmer Analyst</title>
 	<requirements>
-		<skill></skill>
+		<skill>Analyzing Information</skill>
+		<skill>C</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Software Design</skill>
+		<skill>Software Development Fundamentals</skill>
+		<skill>Software Documentation</skill>
+		<skill>Software Testing</skill>
+		<skill>Software Engineering Best Practices</skill>
 	</requirements>
-	<salary></salary>
+	<salary>$64,421</salary>
 </job>
 <job>
 	<title>Software Applications Developer</title>
 	<requirements>
-		<skill></skill>
+		<skill>Programming Languages</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Software Design</skill>
+		<skill>Software Testing</skill>
+		<skill>Software Engineering Best Practices</skill>
 	</requirements>
 	<salary>$98,260</salary>
 </job>
@@ -51,7 +66,13 @@
 <job>
 	<title>Database Administrator</title>
 	<requirements>
-		<skill></skill>
+		<skill>Database Performance Tuning</skill>
+		<skill>Database Security</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Written and Verbal Communication</skill>
+		<skill>Database Management</skill>
+		<skill>Data Maintenance</skill>
+		<skill>Operating Systems</skill>
 	</requirements>
 	<salary>$81,710</salary>
 </job>
@@ -70,16 +91,55 @@
 	<title>Android Software Developer</title>
 	<requirements>
 		<skill>Java</skill>
-		<skill>Model/View/Controller Knowledge</skill>
-		<skill></skill>
+		<skill>Model/View/Controller</skill>
+		<skill>Android OS</skill>
+		<skill>Android SDK</skill>
+		<skill>REST API</skill>
+		<skill>JSON</skill>
+		<skill>Mobile Development Lifecycle</skill>
 	</requirements>
 	<salary>$117,000</salary>
 </job>
 <job>
-	<title>Software Applications Developer</title>
+	<title>Computer Scientist</title>
 	<requirements>
-		<skill></skill>
+		<skill>Hardware Systems</skill>
+		<skill>Programming Languages</skill>
+		<skill>Operating Systems</skill>
+		<skill>Software Systems</skill>
+		<skill>Software Design</skill>
 	</requirements>
-	<salary></salary>
+	<salary>$105,000</salary>
+</job>
+<job>
+	<title>Unix System Administrator</title>
+	<requirements>
+		<skill>UNIX Experience</skill>
+		<skill>Hardware Systems</skill>
+		<skill>Information Security</skill>
+		<skill>Analyzing Information</skill>
+		<skill>Networking</skill>
+		<skill>Distributed Systems</skill>
+	</requirements>
+	<salary>$93,500</salary>
+</job>
+<job>
+	<title>.NET Software Developer</title>
+	<requirements>
+		<skill>Software Development</skill>
+		<skill>Software Design</skill>
+		<skill>Windows Operating System</skill>
+		<skill>ASP.NET</skill>
+		<skill>SQL Server</skill>
+		<skill>Web Development</skill>
+		<skill>HTML</skill>
+		<skill>CSS</skill>
+		<skill>JavaScript</skill>
+		<skill>C#</skill>
+		<skill>VB.Net</skill>
+		<skill>Technical Writing</skill>
+		<skill>Written and Verbal Communication</skill>
+	</requirements>
+	<salary>$90,400</salary>
 </job>
 </cs_occuptions>
