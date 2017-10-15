@@ -55,12 +55,23 @@ def login():
     return render_template('login.html', form=form, session=session)
 
 
+@app.route('/logout')
+def logout():
+    '''Logs out a user by clearing session information'''
+    session.clear()
+    return redirect(url_for('login'))
+
+
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
     thisProfile = []
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
     return render_template('profile.html', user=current_user, userProfile=thisProfile)
+
+@app.route('/main', methods=['GET', 'POST'])
+def main():
+    return render_template('main.html', user=current_user)
 
 
 if __name__ == '__main__':

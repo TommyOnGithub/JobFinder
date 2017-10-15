@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/static/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
-    <link href="/static/profile/profile.css" rel="stylesheet" type="text/css">
-    <script src="/static/profile/profile.js"></script>
+    <link href="/static/main/main.css" rel="stylesheet" type="text/css">
+    <script src="/static/main/main.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -30,18 +30,18 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li>
                         <a href="profile">
                             Profile
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="main">
                             View Majors
                         </a>
                     </li>
                     <li>
-                        <a href="jobs">
+                        <a href="main">
                             View Jobs
                         </a>
                     </li>
@@ -68,28 +68,40 @@
     <br/>
     <br/>
     <br/>
-    <div class="text-center">
-        <div class="proInfo" id="profileInfo">
-            <table>
-                <tbody class="thisProf">
-                    <tr>
-                        <td class="proCell"><b class="pull-left">Username:</b>{{ userProfile[0].username }}</td>
-                    </tr>
-                    <tr>
-                        <td class="proCell"><b class="pull-left">First Name:</b>{{ userProfile[0].firstName }}</td>
-                        <td class="proCell"><b class="pull-left">Last Name:</b>{{ userProfile[0].lastName }}</td>
-                    </tr>
-                    <tr>
-                        <td class="proCell"><b class="pull-left">Email:</b>{{ userProfile[0].email }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-<footer>
-    <div class="text-center">
-        <p>Job Finder</p>
-    </div>
-</footer>
+    <div>Search:</div>
+    <input type="text" id="searchFilt" class="form-control" placeholder="Name to search">
+    <div>Search By:</div>
+    <label for="majorCheck">Major:</label>
+    <input type="checkbox" id="majorCheck">
+    <label for="jobCheck">Job:</label>
+    <input type="checkbox" id="jobCheck">
+    <table id="majorTable">
+      <tr>
+        <td>Major 1</td>
+      </tr>
+      <tr>
+        <td>Major 2</td>
+      </tr>
+       <tr>
+        <td>Major 3</td>
+      </tr>
+       <tr>
+        <td>Major 4</td>
+      </tr>
+    </table>
+    <table id="jobTable">
+      <tr>
+        <td>Job 1</td>
+      </tr>
+      <tr>
+        <td>Job 2</td>
+      </tr>
+       <tr>
+        <td>Job 3</td>
+      </tr>
+       <tr>
+        <td>Job 4</td>
+      </tr>
+    </table>
 </body>
 </html>
