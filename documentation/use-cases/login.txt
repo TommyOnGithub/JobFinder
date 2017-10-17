@@ -1,0 +1,12 @@
+Name:			 User login
+Description:		 User logs into the site
+Primary Actor:		 User
+Preconditions:		 User must be registered with site
+Trigger:		 User visits the login page
+Basic flow:		 1. User enters username and password
+      			    	 1.1 System verifies name and password
+			 2. User is redirected to the main page and is now logged in.
+Alternate flows:	 #User is not in the system.
+	  		       	 1. System displays "incorrect username or password"
+			 #User inputs wrong password.
+			       	 1. System displays "incorrect username or password"
