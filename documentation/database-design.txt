@@ -1,8 +1,5 @@
 --A description of the structure and function of the database--
 
-There are 6 tables in the database so far; 3 tables for the users
-and 3 tables for the functionality.
-
 The User table is the master table for all the registered members
 of the site. It includes their real name, username, and password.
 Along with it are the Faculty and Admin tables, which list users
@@ -11,13 +8,22 @@ can view student profiles and match students to jobs and degrees.
 Users in the Admin table can view and edit other profiles on the
 site.
 
-The Student, Job, and Degree table provide the data for the main
-functionality of the site. Each table has a column for each skill we
-have identified, and a number from 1 to 5. For the Student table,
-it indicates their strength in that skill. For Degree, it's whether
-the degree teaches that skill. For Job, it indicates how heavily
-that job requires that skill. Our matching algorithm will crunch
-the skills columns of each of these tables.
+The Job and Degree tables give a name for that degree or job and
+a unique ID number. They also document some info about each job
+or degree.
 
-Additionally, the Student table documents some basic information
-about the student.
+The Skill table contains a column for every skill tracked by the
+website, as well as a column for an ID number. Each row represents
+an entity which can have associated skills, and its ID references
+an entry in either the user table, the job table, or the degree
+table. For each skill, the row has an integer 1 to 5. For users,
+that number represents how proficient they are with that skill.
+For jobs, it's how much they require that skill. For degrees, it's
+whether that degree teaches that skill. 
+
+Our algorithm will query the Skill table for a student and a degree,
+add their skills together, and then query it again for a job that
+matches the resulting skill set. Alternatively, the algorithm will
+query the table for a student and a job, subtract the students
+skill set from the jobs necessary skills, and then find a degree
+that teaches the skills that remain.
