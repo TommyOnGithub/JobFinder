@@ -142,4 +142,20 @@
 	</requirements>
 	<salary>$90,400</salary>
 </job>
+<job>
+	<title>FPGA Engineer</title>
+	<requirements>
+		<skill>Hardware Systems</skill>
+		<skill>Written and Verbal Communication</skill>
+		<skill>Software Optimization</skill>
+		<skill>Software Engineering</skill>
+		<skill>FPGA Development</skill>
+		<skill>Quantitative Reasoning</skill>
+		<skill>Electrical Engineering</skill>
+		<skill>UNIX Experience</skill>
+		<skill>Python</skill>
+		<skill>Software Testing</skill>
+		<skill>Networking Protocol</skill>
+	</requirements>
+	<salary>$130,000</salary>
 </cs_occuptions>
