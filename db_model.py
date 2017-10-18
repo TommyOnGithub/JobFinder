@@ -19,6 +19,8 @@ class User(db.Model):
     firstName = db.Column(db.String())
     lastName = db.Column(db.String())
     current_session = db.Column(db.String())
+    isAdmin = db.Column(db.Boolean, default=False)
+    isFaculty = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<User %r>' % (self.username)
@@ -56,3 +58,17 @@ class User(db.Model):
             'At least one lowercase' : lowercase_error,
             'At least one symbol' : symbol_error,
         }
+
+class Skill(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    skill1 = db.Column(db.Integer)
+    skill2 = db.Column(db.Integer)
+    skill3 = db.Column(db.Integer)
+
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+
+class Degree(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
