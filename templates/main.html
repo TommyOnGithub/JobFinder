@@ -76,32 +76,18 @@
     <label for="jobCheck">Job:</label>
     <input type="checkbox" id="jobCheck">
     <table id="majorTable">
-      <tr>
-        <td>Major 1</td>
-      </tr>
-      <tr>
-        <td>Major 2</td>
-      </tr>
-       <tr>
-        <td>Major 3</td>
-      </tr>
-       <tr>
-        <td>Major 4</td>
-      </tr>
+        {% for major in majors %}
+            <tr>
+                <td>{{ major.name }}</td>
+            </tr>
+        {% endfor %}
     </table>
     <table id="jobTable">
-      <tr>
-        <td>Job 1</td>
-      </tr>
-      <tr>
-        <td>Job 2</td>
-      </tr>
-       <tr>
-        <td>Job 3</td>
-      </tr>
-       <tr>
-        <td>Job 4</td>
-      </tr>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.name }}</td>
+            </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

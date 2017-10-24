@@ -1,7 +1,9 @@
 from flask import render_template, session, url_for, redirect, flash, request
 from flask_login import LoginManager, current_user, login_user
 from app import app
-from db_model import db, User
+from db_model import db, User, Degree, Job
+import json
+import xml.etree.ElementTree
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -51,6 +53,7 @@ def login():
     if request.method == 'POST' and form.validate():
         user = form.get_user()
         login_user(user)
+        getXML()
         return redirect(url_for('profile'))
     return render_template('login.html', form=form, session=session)
 
@@ -69,9 +72,46 @@ def profile():
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
     return render_template('profile.html', user=current_user, userProfile=thisProfile)
 
+@app.route('/updateProf', methods=['GET', 'POST'])
+def updateProf():
+    user_instance = db.session.query(User).filter_by(username=current_user.username).first()
+    email = request.form.get('email', type=str)
+    password = request.form.get('pass', type=str)
+    if password != '0':
+        strength = current_user.is_strong_pass(password)
+        if strength['password_ok']:
+            user_instance.set_password(password)
+    if email != '0':
+        user_instance.email = email
+    db.session.commit()
+    return 'Updated'
+
 @app.route('/main', methods=['GET', 'POST'])
 def main():
-    return render_template('main.html', user=current_user)
+    majors = db.session.query(Degree.name).all()
+    jobs = db.session.query(Job.name).all()
+    return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
+
+
+def getXML():
+    jobXml = xml.etree.ElementTree.parse('jobs_data.xml').getroot()
+    for jTitle in jobXml.iter('title'):
+        checkExist = db.session.query(Job).filter_by(name=jTitle.text).first()
+        if checkExist is None:
+            job = Job()
+            job.name = jTitle.text
+            db.session.add(job)
+            db.session.commit()
+
+    majorXml = xml.etree.ElementTree.parse('majors_data.xml').getroot()
+    for mTitle in majorXml.iter('title'):
+        checkExist = db.session.query(Degree).filter_by(name=mTitle.text).first()
+        if checkExist is None:
+            degree = Degree()
+            degree.name = mTitle.text
+            db.session.add(degree)
+            db.session.commit()
+    return
 
 
 if __name__ == '__main__':

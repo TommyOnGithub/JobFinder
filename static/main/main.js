@@ -1,5 +1,7 @@
 $(document).ready( function(){
     setupSearch();
+    $('#majorCheck').prop('checked', true);
+    $('#jobCheck').prop('checked', true);
 })
 function setupSearch(){
     $('#searchFilt').keyup(function(e){

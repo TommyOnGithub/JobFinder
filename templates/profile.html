@@ -80,10 +80,12 @@
                         <td class="proCell"><b class="pull-left">Last Name:</b>{{ userProfile[0].lastName }}</td>
                     </tr>
                     <tr>
-                        <td class="proCell"><b class="pull-left">Email:</b>{{ userProfile[0].email }}</td>
+                        <td class="proCell"><b class="pull-left">Email:</b><input type="text" class="form-control" placeholder='{{ userProfile[0].email }}' id="proEmail"></td>
+                        <!--<td class="proCell"><b class="pull-left">Password:</b><input type="password" class="form-control" id="proPass"></td>-->
                     </tr>
                 </tbody>
             </table>
+            <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
         </div>
     </div>
 <footer>
