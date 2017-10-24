@@ -133,13 +133,17 @@
 <major>
 	<title>Predictive Analytics</title>
 	<requirements>
-	<skill></skill>
+		<skill>Written and Verbal Communication</skill>
+		<skill>Technical Writing</skill>
+		<skill>Hardware System</skill>
 	</requirements>
 </major>
 <major>
 	<title>Software Engineering</title>
 	<requirements>
-	<skill></skill>
+		<skill>Software Development</skill>
+		<skill>Software Design</skill>
+		<skill
 	</requirements>
 </major>
 <major>
