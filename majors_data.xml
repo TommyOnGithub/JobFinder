@@ -143,13 +143,13 @@
 	<requirements>
 		<skill>Software Development</skill>
 		<skill>Software Design</skill>
-		<skill
+		<skill>Software Systems</skill>
 	</requirements>
 </major>
 <major>
 	<title>JD/MS in Computer Science Technology</title>
 	<requirements>
-	<skill></skill>
+		<skill>Java</skill>
 	</requirements>
 </major>
 </cs_majors>
