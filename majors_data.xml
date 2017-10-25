@@ -136,6 +136,8 @@
 		<skill>Written and Verbal Communication</skill>
 		<skill>Technical Writing</skill>
 		<skill>Hardware System</skill>
+		<skill>Python</skill>
+		
 	</requirements>
 </major>
 <major>
@@ -144,6 +146,11 @@
 		<skill>Software Development</skill>
 		<skill>Software Design</skill>
 		<skill>Software Systems</skill>
+		<skill>Software Optimization</skill>
+		<skill>Unit Testing</skill>
+		<skill>Python</skill>
+		<skill>Java</skill>
+		
 	</requirements>
 </major>
 <major>
