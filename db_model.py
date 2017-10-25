@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 # 3. Type "db.create_all()"
 
 class User(db.Model):
+    __tablename__ =  'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
     pwhash = db.Column(db.String())
@@ -21,6 +22,8 @@ class User(db.Model):
     current_session = db.Column(db.String())
     isAdmin = db.Column(db.Boolean, default=False)
     isFaculty = db.Column(db.Boolean, default=False)
+    skill_id = db.Column(db.Integer, db.ForeignKey('skill.id'))
+    skills = db.relationship("Skill")
 
     def __repr__(self):
         return '<User %r>' % (self.username)
@@ -60,15 +63,20 @@ class User(db.Model):
         }
 
 class Skill(db.Model):
+    __tablename__ = 'skill'
     id = db.Column(db.Integer, primary_key=True)
     skill1 = db.Column(db.Integer)
     skill2 = db.Column(db.Integer)
     skill3 = db.Column(db.Integer)
 
 class Job(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
+    __tablename__ = 'job'
+    id = db.Column(db.Integer, db.ForeignKey('skill.id'))
+    name = db.Column(db.String(), primary_key=True)
+    skills = db.relationship("Skill")
 
 class Degree(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
+    __tablename__ = 'degree'
+    id = db.Column(db.Integer, db.ForeignKey('skill.id'))
+    name = db.Column(db.String(), primary_key=True)
+    skills = db.relationship("Skill")
