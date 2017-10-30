@@ -65,9 +65,33 @@ class User(db.Model):
 class Skill(db.Model):
     __tablename__ = 'skill'
     id = db.Column(db.Integer, primary_key=True)
-    skill1 = db.Column(db.Integer)
-    skill2 = db.Column(db.Integer)
-    skill3 = db.Column(db.Integer)
+    object_oriented_development = db.Column(db.Integer)
+    programming_java = db.Column(db.Integer)
+    programming_cpp = db.Column(db.Integer)
+    web_development = db.Column(db.Integer)
+    web_frameworks = db.Column(db.Integer)
+    model-view-controller_pattern = db.Column(db.Integer)
+    programming_javascript = db.Column(db.Integer)
+    database_management = db.Column(db.Integer)
+    database_development = db.Column(db.Integer)
+    networking = db.Column(db.Integer)
+    distributed_systems = db.Column(db.Integer)
+    android_development = db.Column(db.Integer)
+    ios_development = db.Column(db.Integer)
+    technical_writing = db.Column(db.Integer)
+    communication = db.Column(db.Integer)
+    data_analysis = db.Column(db.Integer)
+    algorithm_design = db.Column(db.Integer)
+    software_testing = db.Column(db.Integer)
+    software_design_patterns = db.Column(db.Integer)
+    software_development_fundamentals = db.Column(db.Integer)
+    uml_documentation = db.Column(db.Integer)
+    windows_os = db.Column(db.Integer)
+    mac_os = db.Column(db.Integer)
+    linux = db.Column(db.Integer)
+    dot_net = db.Column(db.Integer)
+    troubleshooting = db.Column(db.Integer)
+    artificial_intelligence = db.Column(db.Integer)
 
 class Job(db.Model):
     __tablename__ = 'job'
@@ -80,3 +104,7 @@ class Degree(db.Model):
     id = db.Column(db.Integer, db.ForeignKey('skill.id'))
     name = db.Column(db.String(), primary_key=True)
     skills = db.relationship("Skill")
+
+class List(db.Model):
+    __tablename__ = 'list'
+    name - db.Column(db.String())
