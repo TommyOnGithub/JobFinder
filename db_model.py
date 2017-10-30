@@ -70,7 +70,7 @@ class Skill(db.Model):
     programming_cpp = db.Column(db.Integer)
     web_development = db.Column(db.Integer)
     web_frameworks = db.Column(db.Integer)
-    model-view-controller_pattern = db.Column(db.Integer)
+    model_view_controller_pattern = db.Column(db.Integer)
     programming_javascript = db.Column(db.Integer)
     database_management = db.Column(db.Integer)
     database_development = db.Column(db.Integer)
@@ -107,4 +107,4 @@ class Degree(db.Model):
 
 class List(db.Model):
     __tablename__ = 'list'
-    name - db.Column(db.String())
+    name = db.Column(db.String(), primary_key=True)

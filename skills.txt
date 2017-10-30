@@ -1,27 +1,27 @@
-Object Oriented Development
-Programming Java
-Programming C++
-Web Development
-Web Frameworks
-Model-View-Controller Pattern
-Programming Javascript
-Database Management
-Database Development
-Networking
-Distributed Systems
-Android Development
-IOS Development
-Technical Writing
-Communication
-Data Analysis
-Algorithm Design
-Software Testing
-Software Design Patterns
-Software Development Fundamentals
-UML Documentation
-Windows OS
-Mac OS
-Linux
-.Net
-Troubleshooting
-Artificial Intelligence
+object_oriented_development
+programming_java
+programming_cpp
+web_development
+web_frameworks
+model_view_controller_pattern
+programming_javascript
+database_management
+database_development
+networking
+distributed_systems
+android_development
+ios_development
+technical_writing
+communication
+data_analysis
+algorithm_design
+software_testing
+software_design_patterns
+software_development_fundamentals
+uml_documentation
+windows_os
+mac_os
+linux
+dot_net
+troubleshooting
+artificial_intelligence
