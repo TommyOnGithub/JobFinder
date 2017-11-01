@@ -46,6 +46,9 @@ class User(db.Model):
     def get_id(self):
         return self.id
 
+    def get_skill_id(self):
+	return self.skill_id
+
     def is_strong_pass(self, pw):
         length_error = len(pw) < 8
         digit_error = re.search(r"\d", pw) is None
@@ -99,11 +102,17 @@ class Job(db.Model):
     name = db.Column(db.String(), primary_key=True)
     skills = db.relationship("Skill")
 
+    def get_id(self):
+        return self.id
+
 class Degree(db.Model):
     __tablename__ = 'degree'
     id = db.Column(db.Integer, db.ForeignKey('skill.id'))
     name = db.Column(db.String(), primary_key=True)
     skills = db.relationship("Skill")
+
+    def get_id(self):
+        return self.id
 
 class List(db.Model):
     __tablename__ = 'list'
