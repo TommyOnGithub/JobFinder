@@ -9,7 +9,8 @@ db = SQLAlchemy(app)
 # To update/sync database to the following:
 # 1. Enter python in directory containing db_model.py
 # 2. Type "from db_model import db"
-# 3. Type "db.create_all()"
+# 3. Type "db.drop_all()"
+# 4. Type "db.create_all()"
 
 
 class User(db.Model):
