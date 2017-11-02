@@ -154,7 +154,18 @@ def search_by_degree(user, degree):
         if combined_skills[k] > 5:
             combined_skills[k] = 5
     jobs = get_jobs()
-    #TODO
+    resultSet = {}
+    for job in jobs.iterkeys():
+        job_skills = jobs[job]
+        skill_num = 0.00
+        for skill in job_skills.iterkeys():
+            skill_num += 1.00
+            if combined_skills[skill] >= job_skills[skill]:
+                resultSet[job] = (resultSet[job] + 100.00) / skill_num
+            else:
+                resultSet[job] = (resultSet[job] + (100.00 - (job_skills[skill] - combined_skills[skill]))) / skill_num
+    return resultSet
+
 
 def search_by_job(user, job):
     user_skills = get_skills(user.get_skill_id())
