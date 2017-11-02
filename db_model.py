@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 # 2. Type "from db_model import db"
 # 3. Type "db.create_all()"
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True)
@@ -59,15 +60,23 @@ class User(db.Model):
             'At least one symbol' : symbol_error,
         }
 
+
 class Skill(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     skill1 = db.Column(db.Integer)
     skill2 = db.Column(db.Integer)
     skill3 = db.Column(db.Integer)
 
+
+class SkillNames(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+
+
 class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
+
 
 class Degree(db.Model):
     id = db.Column(db.Integer, primary_key=True)

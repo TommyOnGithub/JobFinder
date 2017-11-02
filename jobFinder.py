@@ -1,8 +1,7 @@
 from flask import render_template, session, url_for, redirect, flash, request
 from flask_login import LoginManager, current_user, login_user
 from app import app
-from db_model import db, User, Degree, Job
-import json
+from db_model import db, User, Degree, Job, Skill, SkillNames
 import xml.etree.ElementTree
 
 login_manager = LoginManager()
@@ -70,6 +69,7 @@ def profile():
     thisProfile = []
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
+    skills = getSkillData(current_user.id)
     return render_template('profile.html', user=current_user, userProfile=thisProfile)
 
 @app.route('/updateProf', methods=['GET', 'POST'])
@@ -90,6 +90,10 @@ def updateProf():
 def main():
     majors = db.session.query(Degree.name).all()
     jobs = db.session.query(Job.name).all()
+    try:
+        current_user.username
+    except AttributeError:
+        return render_template('main.html', user=None, majors=majors, jobs=jobs)
     return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
 
 
@@ -111,7 +115,35 @@ def getXML():
             degree.name = mTitle.text
             db.session.add(degree)
             db.session.commit()
+
+    skillXml1 = xml.etree.ElementTree.parse('jobs_data.xml').getroot()
+    for skill in skillXml1.iter('skill'):
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        if checkExist is None:
+            skillName = SkillNames()
+            skillName.name = skill.text
+            db.session.add(skillName)
+            db.session.commit()
+
+    skillXml2 = xml.etree.ElementTree.parse('majors_data.xml').getroot()
+    for skill in skillXml2.iter('skill'):
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        if checkExist is None:
+            skillName = SkillNames()
+            skillName.name = skill.text
+            db.session.add(skillName)
+            db.session.commit()
     return
+
+
+def getSkillData(id):
+    resultDict = {}
+    skillNames = db.session.query(SkillNames).all()
+    skill = db.session.query(Skill).filter_by(id=id).first()
+    for skillName in skillNames:
+        holder = str(skillName)
+        resultDict[skillName] = skill
+    return resultDict
 
 
 if __name__ == '__main__':

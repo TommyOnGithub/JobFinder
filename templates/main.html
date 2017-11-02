@@ -25,16 +25,18 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="login">
-                    Scandataproc
+                    Job Finder
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    {% if user %}
                     <li>
                         <a href="profile">
                             Profile
                         </a>
                     </li>
+                    {% endif %}
                     <li class="active">
                         <a href="main">
                             View Majors
@@ -53,11 +55,21 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <div class="margin-info pull-right">
-                        <p class="margin-text" align="right">Logged in as <a href="/profile">{{ user.username }}</a>
-                            <br/>
-                            <a href="/logout">Logout</a>
-                            <br/>
-                        </p>
+                        {% if user %}
+                            <p class="margin-text" align="right">Logged in as <a href="/profile">{{ user.username }}</a>
+                                <br/>
+                                <a href="/logout">Logout</a>
+                                <br/>
+                            </p>
+			            {% else %}
+                            <p class="margin-text" align="right"> Guest User
+                                <br/>
+                                <a href="/login">Login</a>
+                                <br/>
+                                <a href="/reg">Register</a>
+                                <br/>
+                            </p>
+                        {% endif %}
                     </div>
                 </ul>
             </div>
