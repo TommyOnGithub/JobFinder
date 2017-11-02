@@ -48,7 +48,7 @@ class User(db.Model):
         return self.id
 
     def get_skill_id(self):
-	return self.skill_id
+        return self.skill_id
 
     def is_strong_pass(self, pw):
         length_error = len(pw) < 8
