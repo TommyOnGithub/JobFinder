@@ -87,6 +87,22 @@
             </table>
             <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
         </div>
+        <div>
+            {% if skills %}
+            <table>
+                {% for name, val in skills.items() %}
+                <tr>
+                    <td>
+                        {{ name }}
+                    </td>
+                    <td>
+                        {{ val }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>
     </div>
 <footer>
     <div class="text-center">
