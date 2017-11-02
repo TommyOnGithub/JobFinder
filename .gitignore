@@ -1,2 +1,6 @@
 
 *.db
+/.vs/config/applicationhost.config
+/.vs/JobFinder/v15/.suo
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
