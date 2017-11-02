@@ -22,7 +22,7 @@ def load_user(user_id):
 
 @app.route('/', methods=['GET', 'POST'])
 def toLogin():
-    return redirect(url_for('login'))
+    return redirect(url_for('main'))
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -34,7 +34,11 @@ def register():
         form.populate_obj(user)
         strength = user.is_strong_pass(form.password.data)
         if strength['password_ok']:
+            userSkill = Skill()
+            db.session.add(userSkill)
+            db.session.flush()
             user.set_password(form.password.data)
+            user.skill_id = db.session.query(Skill).filter_by(id=userSkill.id).first().id
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('login'))
@@ -70,7 +74,7 @@ def profile():
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
     skills = getSkillData(current_user.id)
-    return render_template('profile.html', user=current_user, userProfile=thisProfile)
+    return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills)
 
 @app.route('/updateProf', methods=['GET', 'POST'])
 def updateProf():
@@ -99,38 +103,58 @@ def main():
 
 def getXML():
     jobXml = xml.etree.ElementTree.parse('jobs_data.xml').getroot()
-    for jTitle in jobXml.iter('title'):
-        checkExist = db.session.query(Job).filter_by(name=jTitle.text).first()
+    for job in jobXml.findall('job'):
+        checkExist = db.session.query(Job).filter_by(name=job.find('title').text).first()
         if checkExist is None:
-            job = Job()
-            job.name = jTitle.text
-            db.session.add(job)
+            skillTab = Skill()
+            for skill in job.find('requirements').findall('skill'):
+                temp = skill.text.split(',')[0].replace(' ', '_')
+                temp = temp.replace('+', 'p')
+                temp = temp.lower()
+                attribute = setattr(skillTab, temp, int(skill.text.split(',')[1]))
+            db.session.add(skillTab)
+            db.session.flush()
+            jobSkills = db.session.query(Skill).filter_by(id=skillTab.id).first()
+            jobTab = Job()
+            jobTab.name = job.find('title').text
+            jobTab.id = jobSkills.id
+            db.session.add(jobTab)
             db.session.commit()
 
     majorXml = xml.etree.ElementTree.parse('majors_data.xml').getroot()
-    for mTitle in majorXml.iter('title'):
-        checkExist = db.session.query(Degree).filter_by(name=mTitle.text).first()
+    for major in majorXml.findall('title'):
+        checkExist = db.session.query(Degree).filter_by(name=major.find('title').text).first()
         if checkExist is None:
+            skillTab = Skill()
+            for skill in major.find('requirements').findall('skill'):
+                temp = skill.text.split(',')[0].replace(' ', '_')
+                temp = temp.replace('+', 'p')
+                temp = temp.lower()
+                attribute = setattr(skillTab, temp, int(skill.text.split(',')[1]))
+            db.session.add(skillTab)
+            db.session.flush()
+            majorSkills = db.session.query(Skill).filter_by(id=skillTab.id).first()
             degree = Degree()
-            degree.name = mTitle.text
+            degree.name = major.find('title').text
+            degree.id = majorSkills.id
             db.session.add(degree)
             db.session.commit()
 
     skillXml1 = xml.etree.ElementTree.parse('jobs_data.xml').getroot()
     for skill in skillXml1.iter('skill'):
-        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text.split(',')[0]).first()
         if checkExist is None:
             skillName = SkillNames()
-            skillName.name = skill.text
+            skillName.name = skill.text.split(',')[0]
             db.session.add(skillName)
             db.session.commit()
 
     skillXml2 = xml.etree.ElementTree.parse('majors_data.xml').getroot()
     for skill in skillXml2.iter('skill'):
-        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text.split(',')[0]).first()
         if checkExist is None:
             skillName = SkillNames()
-            skillName.name = skill.text
+            skillName.name = skill.text.split(',')[0]
             db.session.add(skillName)
             db.session.commit()
     return
@@ -141,8 +165,31 @@ def getSkillData(id):
     skillNames = db.session.query(SkillNames).all()
     skill = db.session.query(Skill).filter_by(id=id).first()
     for skillName in skillNames:
-        holder = str(skillName)
-        resultDict[skillName] = skill
+        resultName = skillName.name.replace(' ', '_')
+        resultName = resultName.replace('+', 'p')
+        resultName = resultName.lower()
+        # CAN REMOVE TRY BLOCK IF DATABASE AND XML BECOME FULLY SYNCED
+        try:
+            resultDict[resultName] = getattr(skill, resultName)
+        except AttributeError:
+            resultDict[resultName] = 0
+    return resultDict
+
+def getAllJobs():
+    resultDict = {}
+    jobs = db.session.query(Job).all()
+    for job in jobs:
+        jobSkill = getSkillData(job.id)
+        resultDict[job.name] = jobSkill
+    return resultDict
+
+
+def getAllDegrees():
+    resultDict = {}
+    degrees = db.session.query(Degree).all()
+    for degree in degrees:
+        degreeSkill = getSkillData(degree.id)
+        resultDict[degree.name] = degreeSkill
     return resultDict
 
 def search_by_degree(user, degree):

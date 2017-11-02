@@ -9,7 +9,8 @@ db = SQLAlchemy(app)
 # To update/sync database to the following:
 # 1. Enter python in directory containing db_model.py
 # 2. Type "from db_model import db"
-# 3. Type "db.create_all()"
+# 3. Type "db.drop_all()"
+# 4. Type "db.create_all()"
 
 
 class User(db.Model):
@@ -48,7 +49,7 @@ class User(db.Model):
         return self.id
 
     def get_skill_id(self):
-	return self.skill_id
+        return self.skill_id
 
     def is_strong_pass(self, pw):
         length_error = len(pw) < 8
@@ -70,33 +71,33 @@ class User(db.Model):
 class Skill(db.Model):
     __tablename__ = 'skill'
     id = db.Column(db.Integer, primary_key=True)
-    object_oriented_development = db.Column(db.Integer)
-    programming_java = db.Column(db.Integer)
-    programming_cpp = db.Column(db.Integer)
-    web_development = db.Column(db.Integer)
-    web_frameworks = db.Column(db.Integer)
-    model_view_controller_pattern = db.Column(db.Integer)
-    programming_javascript = db.Column(db.Integer)
-    database_management = db.Column(db.Integer)
-    database_development = db.Column(db.Integer)
-    networking = db.Column(db.Integer)
-    distributed_systems = db.Column(db.Integer)
-    android_development = db.Column(db.Integer)
-    ios_development = db.Column(db.Integer)
-    technical_writing = db.Column(db.Integer)
-    communication = db.Column(db.Integer)
-    data_analysis = db.Column(db.Integer)
-    algorithm_design = db.Column(db.Integer)
-    software_testing = db.Column(db.Integer)
-    software_design_patterns = db.Column(db.Integer)
-    software_development_fundamentals = db.Column(db.Integer)
-    uml_documentation = db.Column(db.Integer)
-    windows_os = db.Column(db.Integer)
-    mac_os = db.Column(db.Integer)
-    linux = db.Column(db.Integer)
-    dot_net = db.Column(db.Integer)
-    troubleshooting = db.Column(db.Integer)
-    artificial_intelligence = db.Column(db.Integer)
+    object_oriented_development = db.Column(db.Integer, default=0)
+    programming_java = db.Column(db.Integer, default=0)
+    programming_cpp = db.Column(db.Integer, default=0)
+    web_development = db.Column(db.Integer, default=0)
+    web_frameworks = db.Column(db.Integer, default=0)
+    model_view_controller_pattern = db.Column(db.Integer, default=0)
+    programming_javascript = db.Column(db.Integer, default=0)
+    database_management = db.Column(db.Integer, default=0)
+    database_development = db.Column(db.Integer, default=0)
+    networking = db.Column(db.Integer, default=0)
+    distributed_systems = db.Column(db.Integer, default=0)
+    android_development = db.Column(db.Integer, default=0)
+    ios_development = db.Column(db.Integer, default=0)
+    technical_writing = db.Column(db.Integer, default=0)
+    communication = db.Column(db.Integer, default=0)
+    data_analysis = db.Column(db.Integer, default=0)
+    algorithm_design = db.Column(db.Integer, default=0)
+    software_testing = db.Column(db.Integer, default=0)
+    software_design_patterns = db.Column(db.Integer, default=0)
+    software_development_fundamentals = db.Column(db.Integer, default=0)
+    uml_documentation = db.Column(db.Integer, default=0)
+    windows_os = db.Column(db.Integer, default=0)
+    mac_os = db.Column(db.Integer, default=0)
+    linux = db.Column(db.Integer, default=0)
+    dot_net = db.Column(db.Integer, default=0)
+    troubleshooting = db.Column(db.Integer, default=0)
+    artificial_intelligence = db.Column(db.Integer, default=0)
 
 
 class SkillNames(db.Model):

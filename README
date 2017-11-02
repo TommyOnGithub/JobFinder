@@ -1,0 +1,16 @@
+JobFinder
+---------
+A web app to help user break into the field of computer science.
+
+
+SETUP
+-----
+Run the Python 2 interpreter and enter
+>>> from db_model import db
+>>> db.drop_all()
+>>> db.create_all()
+>>> quit()
+
+Then run "python2 jobFinder.py" from the command line.
+Open a web browser and navigate to "localhost:5000"
+After refreshing the database, you will need to re-register.
