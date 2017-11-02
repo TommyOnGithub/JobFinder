@@ -118,19 +118,19 @@ def getXML():
 
     skillXml1 = xml.etree.ElementTree.parse('jobs_data.xml').getroot()
     for skill in skillXml1.iter('skill'):
-        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text.split(',')[0]).first()
         if checkExist is None:
             skillName = SkillNames()
-            skillName.name = skill.text
+            skillName.name = skill.text.split(',')[0]
             db.session.add(skillName)
             db.session.commit()
 
     skillXml2 = xml.etree.ElementTree.parse('majors_data.xml').getroot()
     for skill in skillXml2.iter('skill'):
-        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text.split(',')[0]).first()
         if checkExist is None:
             skillName = SkillNames()
-            skillName.name = skill.text
+            skillName.name = skill.text.split(',')[0]
             db.session.add(skillName)
             db.session.commit()
     return

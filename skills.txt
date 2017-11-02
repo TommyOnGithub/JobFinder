@@ -25,3 +25,9 @@ linux
 dot_net
 troubleshooting
 artificial_intelligence
+
+compiler_design
+object_oriented_PLs
+procedural_PLs
+functional_PLs
+declarative_PLs
