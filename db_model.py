@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 # 2. Type "from db_model import db"
 # 3. Type "db.create_all()"
 
+
 class User(db.Model):
     __tablename__ =  'user'
     id = db.Column(db.Integer, primary_key=True)
@@ -47,7 +48,7 @@ class User(db.Model):
         return self.id
 
     def get_skill_id(self):
-	return self.skill_id
+        return self.skill_id
 
     def is_strong_pass(self, pw):
         length_error = len(pw) < 8
@@ -64,6 +65,7 @@ class User(db.Model):
             'At least one lowercase' : lowercase_error,
             'At least one symbol' : symbol_error,
         }
+
 
 class Skill(db.Model):
     __tablename__ = 'skill'
@@ -96,6 +98,12 @@ class Skill(db.Model):
     troubleshooting = db.Column(db.Integer)
     artificial_intelligence = db.Column(db.Integer)
 
+
+class SkillNames(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+
+
 class Job(db.Model):
     __tablename__ = 'job'
     id = db.Column(db.Integer, db.ForeignKey('skill.id'))
@@ -104,6 +112,7 @@ class Job(db.Model):
 
     def get_id(self):
         return self.id
+
 
 class Degree(db.Model):
     __tablename__ = 'degree'
