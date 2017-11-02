@@ -193,26 +193,48 @@ def getAllDegrees():
     return resultDict
 
 def search_by_degree(user, degree):
-    user_skills = get_skills(user.get_skill_id())
-    degree_skills = get_skills(degree.get_id())
+    user_skills = getSkillData(user.get_skill_id())
+    degree_skills = getSkillData(degree.get_id())
     combined_skills = {}
     for k in user_skills.iterkeys():
         combined_skills[k] = user_skills[k] + degree_skills[k]
         if combined_skills[k] > 5:
             combined_skills[k] = 5
-    jobs = get_jobs()
-    #TODO
+    jobs = getAllJobs()
+    resultSet = {}
+    for job in jobs.iterkeys():
+        job_skills = jobs[job]
+        skill_num = 0.00
+        for skill in job_skills.iterkeys():
+            skill_num += 1.00
+            if combined_skills[skill] >= job_skills[skill]:
+                resultSet[job] = (resultSet[job] + 100.00) / skill_num
+            else:
+                resultSet[job] = (resultSet[job] + (((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00)) / skill_num
+    return resultSet
+
 
 def search_by_job(user, job):
-    user_skills = get_skills(user.get_skill_id())
-    job_skills = get_skills(job.get_id())
+    user_skills = getSkillData(user.get_skill_id())
+    job_skills = getSkillData(job.get_id())
     missing_skills = {}
     for k in user_skills.iterkeys():
         missing_skills[k] = job_skills[k] - user_skills[k]
         if missing_skills[k] < 0:
             missing_skills[k] = 0
-    degrees = get_degrees()
-    #TODO
+    degrees = getAllDegrees()
+    resultSet = {}
+    for degree in degrees.iterkeys():
+        degree_skills = degrees[degree]
+        skill_num = 0.00
+        for skill in degree_skills.iterkeys():
+            if missing_skills[skill] != 0:
+                skill_num += 1.00
+                if degree_skills[skill] >= missing_skills[skill]:
+                    resultSet[degree] = (resultSet[degree] + 100.00) / skill_num
+                else:
+                    resultSet[degree] = (resultSet[degree] + (((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00)) / skill_num
+    return resultSet
 
 
 if __name__ == '__main__':
