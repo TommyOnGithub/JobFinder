@@ -3,7 +3,7 @@
 <job>
 	<title>Systems Engineer</title>
 	<requirements>
-		<skill>Procedural Programming Languages, 2</skill>
+		<skill>Procedural Programming Languages, 2<skill>
 		<skill>Declarative Programming Languages, 2</skill>
 		<skill>Object Oriented Programming Languages, 2</skill>
 		<skill>Functional Programming Languages, 1</skill>
@@ -16,7 +16,7 @@
 		<skill>Database Management, 1</skill>
 		<skill>Process Automation, 1</skill>
 		<skill>UNIX Experience, 1</skill>
-		<skill>Networking</skill>
+		<skill>Networking Protocols, 1</skill>
 	</requirements>
 	<salary>$88,717</salary>
 </job>
