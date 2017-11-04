@@ -5,6 +5,13 @@
 	<requirements>
 		<skill>Object Oriented Development</skill>
 		<skill>Coding Experience</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Declarative Programming Languages</skill>
+		<skill>Object Oriented Programming Languages</skill>
+		<skill>Functional Programming Languages</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Process Automation</skill>
+		<skill>UNIX Experience</skill>
 		<skill>Software Engineering Best Practices</skill>
 	</requirements>
 </major>
@@ -12,8 +19,15 @@
 	<title>Business Information Technology</title>
 	<requirements>
 		<skill>Operating Systems</skill>
+		<skill>Analyzing Information</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Networking Protocols</skill>
+		<skill>Operating Systems</skill>
+		<skill>Information Security</skill>
 		<skill>Hardware Systems</skill>
 		<skill>Written and Verbal Communication</skill>
+		<skill>Software Design<skill>
+		<skill>UML Modeling</skill>
 	</requirements>
 </major>
 <major>
