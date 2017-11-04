@@ -34,7 +34,15 @@
 	<title>Game Programming</title>
 	<requirements>
 		<skill>Written and Verbal Communication</skill>
+		<skill>Model/View/Controller</skill>
+		<skill>Coding Experience</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Declarative Programming Languages</skill>
+		<skill>Object Oriented Programming Languages</skill>
+		<skill>Functional Programming Languages</skill>
 		<skill>Troubleshooting</skill>
+		<skill>Analyzing Information</skill>
+		<skill>Software Design</skill>
 		<skill>Software Engineering Best Practices</skill>
 	</requirements>
 </major>
@@ -42,7 +50,10 @@
 	<title>Computational Finance</title>
 	<requirements>
 		<skill>Analyzing Information</skill>
-		<skill>Programming C</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Object Oriented Programming Languages</skill>
+		<skill>Declarative Programming Languages</skill>
+		<skill>Functional Programming Languages</skill>
 		<skill>Troubleshooting</skill>
 		<skill>Software Design</skill>
 		<skill>Software Development Fundamentals</skill>
@@ -64,10 +75,14 @@
 <major>
 	<title>Computer Science</title>
 	<requirements>
-		<skill>P</skill>
-		<skill>CSS</skill>
-		<skill>JavaScript</skill>
-		<skill>Design</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Declarative Programming Languages</skill>
+		<skill>Functional Programming Languages</skill>
+		<skill>Object Oriented Programming Languages</skill>
+		<skill>Object Oriented Development</skill>
+		<skill>UNIX Experience</skill>
+		<skill>Operating System</skill>
+		<skill>Software Design</skill>
 		<skill>Web Frameworks</skill>
 	</requirements>
 </major>
