@@ -9,7 +9,7 @@
 		<skill>Declarative Programming Languages, 2</skill>
 		<skill>Object Oriented Programming Languages, 3</skill>
 		<skill>Functional Programming Languages,3</skill>
-		<skill>Troubleshooting</skill>
+		<skill>Troubleshooting, 3</skill>
 		<skill>Process Automation, 4</skill>
 		<skill>UNIX Experience, 4</skill>
 		<skill>Software Engineering Best Practices, 2</skill>
@@ -41,7 +41,7 @@
 		<skill>Object Oriented Programming Languages, 5</skill>
 		<skill>Functional Programming Languages, 4</skill>
 		<skill>Troubleshooting, 4</skill>
-		<skill>Analyzing Information, 3</skill>
+		<skill>Analyzing Information, 2</skill>
 		<skill>Software Design, 5</skill>
 		<skill>Software Engineering Best Practices, 3</skill>
 	</requirements>
@@ -201,7 +201,7 @@
 		<skill>UML Modeling, 4</skill>
 		<skill>Software Engineering Best Practices, 4</skill>
 		<skill>Distributed Systems, 3</skill>
-		<skill>Troubleshooting</skill>
+		<skill>Troubleshooting, 3</skill>
 		<skill>Software Design, 5</skill>
 		<skill>Software Systems, 5</skill>
 		<skill>Software Optimization, 5</skill>
