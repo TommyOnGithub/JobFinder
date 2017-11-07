@@ -3,127 +3,151 @@
 <major>
 	<title>Applied Technology</title>
 	<requirements>
-		<skill>Object Oriented Development</skill>
-		<skill>Coding Experience</skill>
-		<skill>Procedural Programming Languages</skill>
-		<skill>Declarative Programming Languages</skill>
-		<skill>Object Oriented Programming Languages</skill>
-		<skill>Functional Programming Languages</skill>
+		<skill>Object Oriented Development, 3</skill>
+		<skill>Coding Experience, 2</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Declarative Programming Languages, 2</skill>
+		<skill>Object Oriented Programming Languages, 3</skill>
+		<skill>Functional Programming Languages,3</skill>
 		<skill>Troubleshooting</skill>
-		<skill>Process Automation</skill>
-		<skill>UNIX Experience</skill>
-		<skill>Software Engineering Best Practices</skill>
+		<skill>Process Automation, 4</skill>
+		<skill>UNIX Experience, 4</skill>
+		<skill>Software Engineering Best Practices, 2</skill>
 	</requirements>
 </major>
 <major>
 	<title>Business Information Technology</title>
 	<requirements>
-		<skill>Operating Systems</skill>
-		<skill>Analyzing Information</skill>
-		<skill>Troubleshooting</skill>
-		<skill>Networking Protocols</skill>
-		<skill>Operating Systems</skill>
-		<skill>Information Security</skill>
-		<skill>Hardware Systems</skill>
-		<skill>Written and Verbal Communication</skill>
-		<skill>Software Design<skill>
-		<skill>UML Modeling</skill>
+		<skill>Operating Systems, 4</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Troubleshooting, 4</skill>
+		<skill>Networking Protocols, 3</skill>
+		<skill>Operating Systems, 4</skill>
+		<skill>Information Security, 3</skill>
+		<skill>Hardware Systems, 3</skill>
+		<skill>Written and Verbal Communication, 4</skill>
+		<skill>Software Design, 2<skill>
+		<skill>UML Modeling, 3</skill>
 	</requirements>
 </major>
 <major>
 	<title>Game Programming</title>
 	<requirements>
-		<skill>Written and Verbal Communication</skill>
-		<skill>Model/View/Controller</skill>
-		<skill>Coding Experience</skill>
-		<skill>Procedural Programming Languages</skill>
-		<skill>Declarative Programming Languages</skill>
-		<skill>Object Oriented Programming Languages</skill>
-		<skill>Functional Programming Languages</skill>
-		<skill>Troubleshooting</skill>
-		<skill>Analyzing Information</skill>
-		<skill>Software Design</skill>
-		<skill>Software Engineering Best Practices</skill>
+		<skill>Written and Verbal Communication, 2</skill>
+		<skill>Model/View/Controller, 5</skill>
+		<skill>Coding Experience, 5</skill>
+		<skill>Procedural Programming Languages, 4</skill>
+		<skill>Declarative Programming Languages, 5</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 4</skill>
+		<skill>Troubleshooting, 4</skill>
+		<skill>Analyzing Information, 3</skill>
+		<skill>Software Design, 5</skill>
+		<skill>Software Engineering Best Practices, 3</skill>
 	</requirements>
 </major>
 <major>
 	<title>Computational Finance</title>
 	<requirements>
-		<skill>Analyzing Information</skill>
-		<skill>Procedural Programming Languages</skill>
-		<skill>Object Oriented Programming Languages</skill>
-		<skill>Declarative Programming Languages</skill>
-		<skill>Functional Programming Languages</skill>
-		<skill>Troubleshooting</skill>
-		<skill>Software Design</skill>
-		<skill>Software Development Fundamentals</skill>
-		<skill>Software Documentation</skill>
-		<skill>Software Testing</skill>
-		<skill>Software Engineering Best Practices</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Declarative Programming Languages, 4</skill>
+		<skill>Functional Programming Languages, 4</skill>
+		<skill>Troubleshooting, 4</skill>
+		<skill>Software Design, 3</skill>
+		<skill>Software Development Fundamentals, 3</skill>
+		<skill>Software Documentation, 4</skill>
+		<skill>Software Testing, 2</skill>
+		<skill>Software Engineering Best Practices, 2</skill>
 	</requirements>
 </major>
 <major>
 	<title>Computer and Information Sciences</title>
 	<requirements>
-		<skill>Troubleshooting</skill>
-		<skill>Software Design</skill>
-		<skill>Software Testing</skill>
-		<skill>Software Engineering Best Practices</skill>
+		<skill>Analyzing Information, 3</skill>
+		<skill>Troubleshooting, 4</skill>
+		<skill>Software Design, 5</skill>
+		<skill>Software Testing, 4</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 3</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
 	</requirements>
 </major>
 <major>
 	<title>Computer Science</title>
 	<requirements>
-		<skill>Distributed Systems</skill>
-		<skill>Procedural Programming Languages</skill>
-		<skill>Declarative Programming Languages</skill>
-		<skill>Functional Programming Languages</skill>
-		<skill>Object Oriented Programming Languages</skill>
-		<skill>Object Oriented Development</skill>
-		<skill>UNIX Experience</skill>
-		<skill>Operating System</skill>
-		<skill>Software Design</skill>
-		<skill>Web Frameworks</skill>
+		<skill>Distributed Systems, 3</skill>
+		<skill>Procedural Programming Languages, 4</skill>
+		<skill>Declarative Programming Languages, 4</skill>
+		<skill>Functional Programming Languages, 4</skill>
+		<skill>Object Oriented Programming Languages, 4</skill>
+		<skill>Object Oriented Development, 5</skill>
+		<skill>UNIX Experience, 2</skill>
+		<skill>Operating System, 2</skill>
+		<skill>Software Design, 3</skill>
+		<skill>Web Frameworks, 1</skill>
 	</requirements>
 </major>
 <major>
 	<title>Cybersecurity</title>
 	<requirements>
-		<skill>Distributed Systems</skill>
-		<skill>Database Performance Tuning</skill>
-		<skill>Database Security</skill>
-		<skill>Troubleshooting</skill>
-		<skill>Written and Verbal Communication</skill>
-		<skill>Database Management</skill>
-		<skill>Data Maintenance</skill>
-		<skill>Operating Systems</skill>
+		<skill>Distributed Systems, 3</skill>
+		<skill>Procedural Programming Languages, 5</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 4</skill>
+		<skill>Database Performance Tuning, 4</skill>
+		<skill>Database Security, 5</skill>
+		<skill>Troubleshooting, 5</skill>
+		<skill>Written and Verbal Communication, 2</skill>
+		<skill>Database Management, 3</skill>
+		<skill>Data Maintenance, 2</skill>
+		<skill>Operating Systems, 4</skill>
+		<skill>Coding Experience, 4</skill>
 	</requirements>
 </major>
 <major>
 	<title>E-Commerce Technology</title>
 	<requirements>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 4</skill>
+		<skill>Object Oriented Development, 3</skill>
+		<skill>Web Frameworks, 4</skill>
+		<skill>Model/View/Controller, 3</skill>
+		<skill>Database Management, 3</skill>
+		<skill>Data Maintenance, 2</skill>
 	</requirements>
 </major>
 <major>
 	<title>Health Informatics</title>
 	<requirements>
-		<skill>Java</skill>
-		<skill>Model/View/Controller</skill>
-		<skill>Android OS</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Java, 4</skill>
+		<skill>Model/View/Controller, 2</skill>
+		<skill>Android OS, 3</skill>
 		<skill>Android SDK</skill>
-		<skill>REST API</skill>
-		<skill>JSON</skill>
-		<skill>Mobile Development Lifecycle</skill>
+		<skill>REST API, 3</skill>
+		<skill>JSON, 2</skill>
+		<skill>Mobile Development Lifecycle, 3</skill>
+		<skill>Database Management, 4</skill>
+		<skill>Data Maintenance, 4</skill>
+		<skill>Database Security, 2</skill>
 	</requirements>
 </major>
 <major>
 	<title>Human-Computer Interaction</title>
 	<requirements>
-		<skill>Hardware Systems</skill>
+		<skill>Analyzing Information, 3</skill>
+		<skill>Hardware Systems, 3</skill>
 		<skill>Programming Languages</skill>
-		<skill>Operating Systems</skill>
-		<skill>Software Systems</skill>
-		<skill>Software Design</skill>
+		<skill>Operating Systems, 4</skill>
+		<skill>Software Systems, 3</skill>
+		<skill>Software Design, 4</skill>
 	</requirements>
 </major>
 <major>
@@ -140,15 +164,16 @@
 <major>
 	<title>Network Engineering and Security</title>
 	<requirements>
-		<skill>Distributed Systems</skill>
-		<skill>Software Development</skill>
-		<skill>Software Design</skill>
-		<skill>Windows Operating System</skill>
-		<skill>.NET Programming</skill>
-		<skill>SQL Server</skill>
-		<skill>Web Development</skill>
-		<skill>Technical Writing</skill>
-		<skill>Written and Verbal Communication</skill>
+		<skill>Distributed Systems, 4</skill>
+		<skill>Software Development, 4</skill>
+		<skill>Software Design, 3</skill>
+		<skill>Windows Operating System, 4</skill>
+		<skill>.NET Programming, 3</skill>
+		<skill>SQL Server, 3</skill>
+		<skill>Web Development, 2</skill>
+		<skill>Technical Writing, 4</skill>
+		<skill>Written and Verbal Communication, 3</skill>
+		<skill>Database Security, 5</skill>
 	</requirements>
 </major>
 <major>
