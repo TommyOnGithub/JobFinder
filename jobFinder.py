@@ -92,6 +92,7 @@ def updateProf():
 
 @app.route('/main', methods=['GET', 'POST'])
 def main():
+    getXML()
     majors = db.session.query(Degree.name).all()
     jobs = db.session.query(Job.name).all()
     try:
