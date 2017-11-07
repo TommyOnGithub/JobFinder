@@ -73,7 +73,7 @@ def profile():
     thisProfile = []
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
-    skills = getSkillData(current_user.skill_id)
+    skills = getSkillData(current_user.id)
     return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills)
 
 @app.route('/updateProf', methods=['GET', 'POST'])
@@ -123,15 +123,15 @@ def getXML():
             db.session.commit()
 
     majorXml = xml.etree.ElementTree.parse('majors_data.xml').getroot()
-    for major in majorXml.findall('major'):
+    for major in majorXml.findall('title'):
         checkExist = db.session.query(Degree).filter_by(name=major.find('title').text).first()
         if checkExist is None:
             skillTab = Skill()
             for skill in major.find('requirements').findall('skill'):
-                temp = skill.text.replace(' ', '_')
+                temp = skill.text.split(',')[0].replace(' ', '_')
                 temp = temp.replace('+', 'p')
                 temp = temp.lower()
-                attribute = setattr(skillTab, temp, 5)
+                attribute = setattr(skillTab, temp, int(skill.text.split(',')[1]))
             db.session.add(skillTab)
             db.session.flush()
             majorSkills = db.session.query(Skill).filter_by(id=skillTab.id).first()
@@ -152,10 +152,10 @@ def getXML():
 
     skillXml2 = xml.etree.ElementTree.parse('majors_data.xml').getroot()
     for skill in skillXml2.iter('skill'):
-        checkExist = db.session.query(SkillNames).filter_by(name=skill.text).first()
+        checkExist = db.session.query(SkillNames).filter_by(name=skill.text.split(',')[0]).first()
         if checkExist is None:
             skillName = SkillNames()
-            skillName.name = skill.text
+            skillName.name = skill.text.split(',')[0]
             db.session.add(skillName)
             db.session.commit()
     return
