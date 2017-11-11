@@ -24,7 +24,6 @@ def load_user(user_id):
 def toLogin():
     return redirect(url_for('main'))
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     from forms import register_form
@@ -206,12 +205,13 @@ def search_by_degree(user, degree):
     for job in jobs.iterkeys():
         job_skills = jobs[job]
         skill_num = 0.00
+        resultSet[job] = 0.00
         for skill in job_skills.iterkeys():
             skill_num += 1.00
             if combined_skills[skill] >= job_skills[skill]:
-                resultSet[job] = (resultSet[job] + 100.00) / skill_num
+                resultSet[job] += (resultSet[job] + 100.00) / skill_num
             else:
-                resultSet[job] = (resultSet[job] + (((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00)) / skill_num
+                resultSet[job] += (resultSet[job] + (((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00)) / skill_num
     return resultSet
 
 
@@ -228,6 +228,7 @@ def search_by_job(user, job):
     for degree in degrees.iterkeys():
         degree_skills = degrees[degree]
         skill_num = 0.00
+        resultSet[degree] = 0
         for skill in degree_skills.iterkeys():
             if missing_skills[skill] != 0:
                 skill_num += 1.00
