@@ -209,9 +209,10 @@ def search_by_degree(user, degree):
         for skill in job_skills.iterkeys():
             skill_num += 1.00
             if combined_skills[skill] >= job_skills[skill]:
-                resultSet[job] += (resultSet[job] + 100.00) / skill_num
+                resultSet[job] += 100.00
             else:
-                resultSet[job] += (resultSet[job] + (((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00)) / skill_num
+                resultSet[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
+        resultSet[job] = resultSet[job] / skill_num
     return resultSet
 
 
@@ -233,9 +234,10 @@ def search_by_job(user, job):
             if missing_skills[skill] != 0:
                 skill_num += 1.00
                 if degree_skills[skill] >= missing_skills[skill]:
-                    resultSet[degree] = (resultSet[degree] + 100.00) / skill_num
+                    resultSet[degree] += 100.00
                 else:
-                    resultSet[degree] = (resultSet[degree] + (((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00)) / skill_num
+                    resultSet[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
+        resultSet[degree] = resultSet[degree] / skill_num
     return resultSet
 
 
