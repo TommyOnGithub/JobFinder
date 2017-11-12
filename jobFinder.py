@@ -1,6 +1,7 @@
 from flask import render_template, session, url_for, redirect, flash, request
 from flask_login import LoginManager, current_user, login_user
 from app import app
+import json
 from db_model import db, User, Degree, Job, Skill, SkillNames
 import xml.etree.ElementTree
 
@@ -80,12 +81,16 @@ def profile():
 def updateProf():
     user_instance = db.session.query(User).filter_by(username=current_user.username).first()
     email = request.form.get('email', type=str)
-    password = request.form.get('pass', type=str)
-    if password != '0':
+    skills = request.form.get('skills', type=str)
+    skills = json.loads(skills)
+    '''
+    if password != '0' and password is not None:
         strength = current_user.is_strong_pass(password)
         if strength['password_ok']:
             user_instance.set_password(password)
-    if email != '0':
+    '''
+    setSkills(user_instance, skills);
+    if email != '0' and email is not None:
         user_instance.email = email
     db.session.commit()
     return 'Updated'
@@ -100,6 +105,13 @@ def main():
     except AttributeError:
         return render_template('main.html', user=None, majors=majors, jobs=jobs)
     return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
+
+
+def setSkills(userInst, skills):
+    skillDB = db.session.query(Skill).filter_by(id=userInst.skill_id).first()
+    for key, value in skills.iteritems():
+        attribute = setattr(skillDB, key, int(value))
+    db.session.commit()
 
 
 def getXML():
