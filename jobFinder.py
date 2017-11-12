@@ -121,6 +121,7 @@ def getXML():
             skillTab = Skill()
             for skill in job.find('requirements').findall('skill'):
                 temp = skill.text.split(',')[0].replace(' ', '_')
+                temp = temp.replace('/', '_')
                 temp = temp.replace('+', 'p')
                 temp = temp.lower()
                 attribute = setattr(skillTab, temp, int(skill.text.split(',')[1]))
@@ -140,6 +141,7 @@ def getXML():
             skillTab = Skill()
             for skill in major.find('requirements').findall('skill'):
                 temp = skill.text.replace(' ', '_')
+                temp = temp.replace('/', '_')
                 temp = temp.replace('+', 'p')
                 temp = temp.lower()
                 attribute = setattr(skillTab, temp, 5)
@@ -178,6 +180,7 @@ def getSkillData(id):
     skill = db.session.query(Skill).filter_by(id=id).first()
     for skillName in skillNames:
         resultName = skillName.name.replace(' ', '_')
+        resultName = resultName.replace('/', '_')
         resultName = resultName.replace('+', 'p')
         resultName = resultName.lower()
         # CAN REMOVE TRY BLOCK IF DATABASE AND XML BECOME FULLY SYNCED
