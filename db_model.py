@@ -1,3 +1,4 @@
+from ast import literal_eval
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import app
@@ -25,6 +26,7 @@ class User(db.Model):
     isAdmin = db.Column(db.Boolean, default=False)
     isFaculty = db.Column(db.Boolean, default=False)
     skill_id = db.Column(db.Integer, db.ForeignKey('skill.id'))
+    recent_search = db.Column(db.String())
     skills = db.relationship("Skill")
 
     def __repr__(self):
@@ -47,6 +49,12 @@ class User(db.Model):
 
     def get_id(self):
         return self.id
+
+    def get_recent_search(self):
+        resultList = []
+        for i in self.recent_search.split(";"):
+            resultList.append(literal_eval(i))
+        return resultList
 
     def get_skill_id(self):
         return self.skill_id
