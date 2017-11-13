@@ -2,7 +2,7 @@ from flask import render_template, session, url_for, redirect, flash, request
 from flask_login import LoginManager, current_user, login_user
 from app import app
 import json
-from db_model import db, User, Degree, Job, Skill, SkillNames
+from db_model import db, User, Degree, Job, Skill, SkillNames, Search
 import xml.etree.ElementTree
 
 login_manager = LoginManager()
@@ -19,13 +19,13 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.query(User).get(user_id)
-'''
+
 def getDegree(degree_id):
     return db.session.query(Degree).get(degree_id)
 
 def getJob(job_id):
     return db.session.query(Job).get(job_id)
-'''
+
 @app.route('/', methods=['GET', 'POST'])
 def toLogin():
     return redirect(url_for('main'))
@@ -240,6 +240,11 @@ def search_by_degree(user, degree):
             else:
                 resultSet[job] += ((combined_skills[skill]*1.00) / skill_val) * 100.00
         resultSet[job] = resultSet[job] / skill_num
+    search = Search()
+    search.user_id = user.get_id()
+    search.using = degree.get_name()
+    db.session.add(search)
+    db.session.commit()
     return resultSet
 
 
@@ -267,6 +272,11 @@ def search_by_job(user, job):
                 else:
                     resultSet[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
         resultSet[degree] = resultSet[degree] / skill_num
+    search = Search()
+    search.user_id = user.get_id()
+    search.using = job.get_name()
+    db.session.add(search)
+    db.session.commit()
     return resultSet
 
 

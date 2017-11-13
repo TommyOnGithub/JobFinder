@@ -138,6 +138,8 @@ class Job(db.Model):
     def get_id(self):
         return self.id
 
+    def get_name(self):
+        return self.name
 
 class Degree(db.Model):
     __tablename__ = 'degree'
@@ -148,6 +150,18 @@ class Degree(db.Model):
     def get_id(self):
         return self.id
 
+    def get_name(self):
+        return self.name
+
 class List(db.Model):
     __tablename__ = 'list'
     name = db.Column(db.String(), primary_key=True)
+
+
+class Search(db.Model):
+    __tableName__ = 'search'
+    search_number = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    using = db.Column(db.String())
+    user = db.relationship("User")
+    
