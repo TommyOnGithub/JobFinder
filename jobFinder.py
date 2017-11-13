@@ -120,12 +120,14 @@ def runMatch():
         search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
     elif name[0] == 'Job':
         search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
+    results = current_user.lastMatch
     return render_template('results.html', user=current_user, results=results)
 
 @app.route('/results', methods=['GET', 'POST'])
 @login_required
 def results():
-    return render_template('results.html', user=current_user)
+    results = current_user.lastMatch
+    return render_template('results.html', user=current_user, results=results)
 
 
 def setSkills(userInst, skills):

@@ -24,6 +24,10 @@ function updateSkills(){
     $('#skillModal').modal('show');
 }
 
+function switchUser(){
+    $('#')
+}
+
 function setupClick(){
     table = $('#skillTable');
     rows = table.find('tbody tr');
