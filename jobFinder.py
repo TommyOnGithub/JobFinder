@@ -2,7 +2,7 @@ from flask import render_template, session, url_for, redirect, flash, request
 from flask_login import LoginManager, current_user, login_user, login_required
 from app import app
 import json
-from db_model import db, User, Degree, Job, Skill, SkillNames
+from db_model import db, User, Degree, Job, Skill, SkillNames, Search
 import xml.etree.ElementTree
 
 login_manager = LoginManager()
@@ -20,6 +20,11 @@ login_manager.init_app(app)
 def load_user(user_id):
     return db.session.query(User).get(user_id)
 
+def getDegree(degree_id):
+    return db.session.query(Degree).get(degree_id)
+
+def getJob(job_id):
+    return db.session.query(Job).get(job_id)
 
 @app.route('/', methods=['GET', 'POST'])
 def toLogin():
@@ -233,19 +238,31 @@ def search_by_degree(user, degree):
         if combined_skills[k] > 5:
             combined_skills[k] = 5
     jobs = getAllJobs()
-    resultSet = {}
+    resultDict = {}
     for job in jobs.iterkeys():
         job_skills = jobs[job]
         skill_num = 0.00
-        resultSet[job] = 0.00
+        resultDict[job] = 0.00
         for skill in job_skills.iterkeys():
+            skill_val = 0 if job_skills[skill] == 0 else (3 if job_skills[skill] == 1 else 5) #temp
             skill_num += 1.00
+            '''
             if combined_skills[skill] >= job_skills[skill]:
-                resultSet[job] += 100.00
+                resultDict[job] += 100.00
             else:
-                resultSet[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
-        resultSet[job] = resultSet[job] / skill_num
-    return resultSet
+                resultDict[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
+            '''
+            if combined_skills[skill] >= skill_val:
+                resultDict[job] += 100.00
+            else:
+                resultDict[job] += ((combined_skills[skill]*1.00) / skill_val) * 100.00
+        resultDict[job] = float('%.2f'%(resultDict[job] / skill_num))
+    search = Search()
+    search.user_id = user.get_id()
+    search.using = degree.get_name()
+    db.session.add(search)
+    db.session.commit()
+    return resultDict
 
 
 def search_by_job(user, job):
@@ -253,24 +270,37 @@ def search_by_job(user, job):
     job_skills = getSkillData(job.get_id())
     missing_skills = {}
     for k in user_skills.iterkeys():
-        missing_skills[k] = job_skills[k] - user_skills[k]
+        skill_val = 0 if job_skills[k] == 0 else (3 if job_skills[k] == 1 else 5) #temp
+        #missing_skills[k] = job_skills[k] - user_skills[k]
+        missing_skills[k] = skill_val - user_skills[k]
         if missing_skills[k] < 0:
             missing_skills[k] = 0
     degrees = getAllDegrees()
-    resultSet = {}
+    resultDict = {}
     for degree in degrees.iterkeys():
         degree_skills = degrees[degree]
         skill_num = 0.00
-        resultSet[degree] = 0
+        resultDict[degree] = 0
         for skill in degree_skills.iterkeys():
             if missing_skills[skill] != 0:
                 skill_num += 1.00
                 if degree_skills[skill] >= missing_skills[skill]:
-                    resultSet[degree] += 100.00
+                    resultDict[degree] += 100.00
                 else:
-                    resultSet[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
-        resultSet[degree] = resultSet[degree] / skill_num
-    return resultSet
+                    resultDict[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
+        resultDict[degree] = float('%.2f'%(resultDict[degree] / skill_num))
+    search = Search()
+    search.user_id = user.get_id()
+    search.using = job.get_name()
+    db.session.add(search)
+    db.session.commit()
+    return resultDict
+
+def sort_results(resultDict):
+    l = list()
+    for key in resultDict.iterkeys():
+        l.append((key, resultDict[key]))
+    return sorted(l, key=lambda entry: entry[1], reverse=True)
 
 
 if __name__ == '__main__':
