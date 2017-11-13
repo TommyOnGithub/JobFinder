@@ -1,5 +1,5 @@
 from flask import render_template, session, url_for, redirect, flash, request
-from flask_login import LoginManager, current_user, login_user
+from flask_login import LoginManager, current_user, login_user, login_required
 from app import app
 import json
 from db_model import db, User, Degree, Job, Skill, SkillNames
@@ -69,6 +69,7 @@ def logout():
 
 
 @app.route('/profile', methods=['GET', 'POST'])
+@login_required
 def profile():
     thisProfile = []
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
@@ -104,6 +105,22 @@ def main():
     except AttributeError:
         return render_template('main.html', user=None, majors=majors, jobs=jobs)
     return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
+
+@app.route('/runMatch', methods=['GET', 'POST'])
+@login_required
+def runMatch():
+    name = request.form.get('name', type=str)
+    name = name.split(' - ')
+    if name[0] == 'Degree':
+        results = search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
+    elif name[0] == 'Job':
+        results = search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
+    return render_template('results.html', user=current_user, results=results)
+
+@app.route('/results', methods=['GET', 'POST'])
+@login_required
+def results():
+    return render_template('results.html', user=current_user, results=results)
 
 
 def setSkills(userInst, skills):

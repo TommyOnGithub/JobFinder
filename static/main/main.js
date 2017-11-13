@@ -1,5 +1,6 @@
 $(document).ready( function(){
     setupSearch();
+    setupRows();
     $('#majorCheck').prop('checked', true);
     $('#jobCheck').prop('checked', true);
 })
@@ -16,6 +17,8 @@ function setupSearch(){
             table = model.find('#jobTable');
             table.show();
             rows = table.find('tbody tr');
+            rows.removeClass('highlight');
+            rows.removeClass('lightlight');
             var filteredRows = rows.filter(function(){
                 var value = $(this).find('td').text().toLowerCase();
                 return value.indexOf(inputContent) === -1;
@@ -35,6 +38,8 @@ function setupSearch(){
             table = model.find('#majorTable');
             table.show();
             rows = table.find('tbody tr');
+            rows.removeClass('highlight');
+            rows.removeClass('lightlight');
             var filteredRows = rows.filter(function(){
                 var value = $(this).find('td').text().toLowerCase();
                 return value.indexOf(inputContent) === -1;
@@ -64,4 +69,69 @@ $(function(){
 
 function logout(){
     window.location.href = ("logout");
+}
+
+function showInfo(header){
+    $('#infoTitle').text(header);
+    $('#infoModal').modal('show');
+}
+
+function runMatch(){
+    $.post('/runMatch', {name: $('#infoTitle').text()});
+}
+
+function setupRows(){
+    mtable = $('#majorTable');
+    mrows = mtable.find('tbody tr');
+    jtable = $('#jobTable');
+    jrows = jtable.find('tbody tr');
+
+    mrows.on('click', function(e){
+        var row = $(this);
+        mrows.removeClass('highlight');
+        mrows.removeClass('lightlight');
+        jrows.removeClass('highlight');
+        jrows.removeClass('lightlight');
+        row.addClass('highlight');
+        showInfo("Degree - " + row[0].innerText);
+    })
+    mrows.on('mouseenter', function(e)
+    {
+        var row = $(this);
+        if ($(row).hasClass( "highlight" ))
+        {
+            mrows.removeClass('lightlight');
+            jrows.removeClass('lightlight');
+        }
+        else
+        {
+            mrows.removeClass('lightlight');
+            jrows.removeClass('lightlight');
+            row.addClass('lightlight');
+        }
+    })
+    jrows.on('click', function(e){
+        var row = $(this);
+        jrows.removeClass('highlight');
+        jrows.removeClass('lightlight');
+        mrows.removeClass('highlight');
+        mrows.removeClass('lightlight');
+        row.addClass('highlight');
+        showInfo("Job - " + row[0].innerText);
+    })
+    jrows.on('mouseenter', function(e)
+    {
+        var row = $(this);
+        if ($(row).hasClass( "highlight" ))
+        {
+            jrows.removeClass('lightlight');
+            mrows.removeClass('lightlight');
+        }
+        else
+        {
+            jrows.removeClass('lightlight');
+            mrows.removeClass('lightlight');
+            row.addClass('lightlight');
+        }
+    })
 }
