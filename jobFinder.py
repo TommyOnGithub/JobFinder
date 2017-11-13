@@ -221,31 +221,31 @@ def search_by_degree(user, degree):
         if combined_skills[k] > 5:
             combined_skills[k] = 5
     jobs = getAllJobs()
-    resultSet = {}
+    resultDict = {}
     for job in jobs.iterkeys():
         job_skills = jobs[job]
         skill_num = 0.00
-        resultSet[job] = 0.00
+        resultDict[job] = 0.00
         for skill in job_skills.iterkeys():
             skill_val = 0 if job_skills[skill] == 0 else (3 if job_skills[skill] == 1 else 5) #temp
             skill_num += 1.00
             '''
             if combined_skills[skill] >= job_skills[skill]:
-                resultSet[job] += 100.00
+                resultDict[job] += 100.00
             else:
-                resultSet[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
+                resultDict[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
             '''
             if combined_skills[skill] >= skill_val:
-                resultSet[job] += 100.00
+                resultDict[job] += 100.00
             else:
-                resultSet[job] += ((combined_skills[skill]*1.00) / skill_val) * 100.00
-        resultSet[job] = resultSet[job] / skill_num
+                resultDict[job] += ((combined_skills[skill]*1.00) / skill_val) * 100.00
+        resultDict[job] = float('%.2f'%(resultDict[job] / skill_num))
     search = Search()
     search.user_id = user.get_id()
     search.using = degree.get_name()
     db.session.add(search)
     db.session.commit()
-    return resultSet
+    return resultDict
 
 
 def search_by_job(user, job):
@@ -259,25 +259,31 @@ def search_by_job(user, job):
         if missing_skills[k] < 0:
             missing_skills[k] = 0
     degrees = getAllDegrees()
-    resultSet = {}
+    resultDict = {}
     for degree in degrees.iterkeys():
         degree_skills = degrees[degree]
         skill_num = 0.00
-        resultSet[degree] = 0
+        resultDict[degree] = 0
         for skill in degree_skills.iterkeys():
             if missing_skills[skill] != 0:
                 skill_num += 1.00
                 if degree_skills[skill] >= missing_skills[skill]:
-                    resultSet[degree] += 100.00
+                    resultDict[degree] += 100.00
                 else:
-                    resultSet[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
-        resultSet[degree] = resultSet[degree] / skill_num
+                    resultDict[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
+        resultDict[degree] = float('%.2f'%(resultDict[degree] / skill_num))
     search = Search()
     search.user_id = user.get_id()
     search.using = job.get_name()
     db.session.add(search)
     db.session.commit()
-    return resultSet
+    return resultDict
+
+def sort_results(resultDict):
+    l = list()
+    for key in resultDict.iterkeys():
+        l.append((key, resultDict[key]))
+    return sorted(l, key=lambda entry: entry[1], reverse=True)
 
 
 if __name__ == '__main__':
