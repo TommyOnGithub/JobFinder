@@ -260,6 +260,7 @@ def search_by_degree(user, degree):
     search = Search()
     search.user_id = user.get_id()
     search.using = degree.get_name()
+    user.recent_search = ';'.join(str(t) for t in (sort_results(resultDict)))
     db.session.add(search)
     db.session.commit()
     return resultDict
@@ -292,6 +293,7 @@ def search_by_job(user, job):
     search = Search()
     search.user_id = user.get_id()
     search.using = job.get_name()
+    user.recent_search = ';'.join(str(t) for t in (sort_results(resultDict)))
     db.session.add(search)
     db.session.commit()
     return resultDict
