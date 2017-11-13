@@ -117,15 +117,15 @@ def runMatch():
     name = request.form.get('name', type=str)
     name = name.split(' - ')
     if name[0] == 'Degree':
-        results = search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
+        search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
     elif name[0] == 'Job':
-        results = search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
+        search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
     return render_template('results.html', user=current_user, results=results)
 
 @app.route('/results', methods=['GET', 'POST'])
 @login_required
 def results():
-    return render_template('results.html', user=current_user, results=results)
+    return render_template('results.html', user=current_user)
 
 
 def setSkills(userInst, skills):
