@@ -3,207 +3,207 @@
 <job>
 	<title>Systems Engineer</title>
 	<requirements>
-		<skill>Procedural Programming Languages, 2</skill>
-		<skill>Declarative Programming Languages, 2</skill>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 1</skill>
-		<skill>Object Oriented Development, 1</skill>
-		<skill>Software Engineering Best Practices, 2</skill>
-		<skill>Analyzing Information, 2</skill>
-		<skill>Troubleshooting, 2</skill>
-		<skill>Operating Systems, 2</skill>
-		<skill>Information Security, 1</skill>
-		<skill>Database Management, 1</skill>
-		<skill>Process Automation, 1</skill>
-		<skill>UNIX Experience, 1</skill>
-		<skill>Networking Protocols, 1</skill>
+		<skill>Procedural Programming Languages, 5</skill>
+		<skill>Declarative Programming Languages, 5</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Object Oriented Development, 3</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Troubleshooting, 5</skill>
+		<skill>Operating Systems, 5</skill>
+		<skill>Information Security, 3</skill>
+		<skill>Database Management, 3</skill>
+		<skill>Process Automation, 3</skill>
+		<skill>UNIX Experience, 3</skill>
+		<skill>Networking Protocols, 3</skill>
 	</requirements>
 	<salary>$88,717</salary>
 </job>
 <job>
 	<title>Software Systems Engineer</title>
 	<requirements>
-		<skill>Declarative Programming Languages, 1</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 2</skill>
-		<skill>Operating Systems, 2</skill>
-		<skill>Hardware Systems, 1</skill>
-		<skill>Written and Verbal Communication, 1</skill>
-		<skill>Software Engineering Best Practices, 2</skill>
-		<skill>Troubleshooting, 2</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 5</skill>
+		<skill>Operating Systems, 5</skill>
+		<skill>Hardware Systems, 3</skill>
+		<skill>Written and Verbal Communication, 3</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
+		<skill>Troubleshooting, 5</skill>
 	</requirements>
 	<salary>$99,931</salary>
 </job>
 <job>
 	<title>Solutions Architect</title>
 	<requirements>
-		<skill>Object Oriented Development, 2</skill>
-		<skill>Object Oriented Programming Languages, 1</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Functional Programming Languages, 1</skill>
-		<skill>Declarative Programming Languages, 1</skill>
-		<skill>Written and Verbal Communication, 2</skill>
-		<skill>Troubleshooting, 1</skill>
-		<skill>UML Modeling, 2</skill>
-		<skill>Software Engineering Best Practices, 2</skill>
+		<skill>Object Oriented Development, 5</skill>
+		<skill>Object Oriented Programming Languages, 3</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Written and Verbal Communication, 5</skill>
+		<skill>Troubleshooting, 3</skill>
+		<skill>UML Modeling, 5</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
 	</requirements>
 	<salary>$125,000</salary>
 </job>
 <job>
 	<title>Programmer Analyst</title>
 	<requirements>
-		<skill>Analyzing Information, 2</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Compiler Design, 1</skill>
-		<skill>Troubleshooting, 2</skill>
-		<skill>Software Design, 2</skill>
-		<skill>Software Documentation, 2</skill>
-		<skill>UML Modeling, 2</skill>
-		<skill>Unit Testing, 2</skill>
-		<skill>Software Engineering Best Practices, 2</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Compiler Design, 3</skill>
+		<skill>Troubleshooting, 5</skill>
+		<skill>Software Design, 5</skill>
+		<skill>Software Documentation, 5</skill>
+		<skill>UML Modeling, 5</skill>
+		<skill>Unit Testing, 5</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
 	</requirements>
 	<salary>$64,421</salary>
 </job>
 <job>
 	<title>Software Applications Developer</title>
 	<requirements>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 2</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Declarative Programming Languages, 1</skill>
-		<skill>Troubleshooting, 2</skill>
-		<skill>Software Design, 2</skill>
-		<skill>Unit Testing, 1</skill>
-		<skill>Software Engineering Best Practices, 2</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 5</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Troubleshooting, 5</skill>
+		<skill>Software Design, 5</skill>
+		<skill>Unit Testing, 3</skill>
+		<skill>Software Engineering Best Practices, 5</skill>
 	</requirements>
 	<salary>$98,260</salary>
 </job>
 <job>
 	<title>Web Developer</title>
 	<requirements>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Declarative Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 2</skill>
-		<skill>Written and Verbal Communication, 2</skill>
-		<skill>Object Oriented Development, 2</skill>
-		<skill>Graphic Design, 1</skill>
-		<skill>Web Frameworks, 2</skill>
-		<skill>Model/View/Controller, 2</skill>
-		<skill>Database Security, 1</skill>
-		<skill>Information Security, 2</skill>
-		<skill>UNIX Experience, 1</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Declarative Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 5</skill>
+		<skill>Written and Verbal Communication, 5</skill>
+		<skill>Object Oriented Development, 5</skill>
+		<skill>Graphic Design, 3</skill>
+		<skill>Web Frameworks, 5</skill>
+		<skill>Model/View/Controller, 5</skill>
+		<skill>Database Security, 3</skill>
+		<skill>Information Security, 5</skill>
+		<skill>UNIX Experience, 3</skill>
 	</requirements>
 	<salary>$64,970</salary>
 </job>
 <job>
 	<title>Database Administrator</title>
 	<requirements>
-		<skill>Database Performance Tuning, 2</skill>
-		<skill>Database Security, 2</skill>
-		<skill>Troubleshooting, 2</skill>
-		<skill>Written and Verbal Communication, 1</skill>
-		<skill>Database Management, 2</skill>
-		<skill>Data Maintenance, 2</skill>
-		<skill>Operating Systems, 1</skill>
-		<skill>Process Automation, 1</skill>
+		<skill>Database Performance Tuning, 5</skill>
+		<skill>Database Security, 5</skill>
+		<skill>Troubleshooting, 5</skill>
+		<skill>Written and Verbal Communication, 3</skill>
+		<skill>Database Management, 5</skill>
+		<skill>Data Maintenance, 5</skill>
+		<skill>Operating Systems, 3</skill>
+		<skill>Process Automation, 3</skill>
 	</requirements>
 	<salary>$81,710</salary>
 </job>
 <job>
 	<title>Software QA Engineer</title>
 	<requirements>
-		<skill>Object Oriented Programming Languages, 1</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Functional Programming Languages, 1</skill>
-		<skill>Compiler Design, 2</skill>
-		<skill>Software Optimization, 2</skill>
-		<skill>Unit Testing, 2</skill>
-		<skill>Technical Writing, 2</skill>
-		<skill>Analyzing Information, 1</skill>
-		<skill>Written and Verbal Communication, 2</skill>
-		<skill>Process Automation, 2</skill>
+		<skill>Object Oriented Programming Languages, 3</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Compiler Design, 5</skill>
+		<skill>Software Optimization, 5</skill>
+		<skill>Unit Testing, 5</skill>
+		<skill>Technical Writing, 5</skill>
+		<skill>Analyzing Information, 3</skill>
+		<skill>Written and Verbal Communication, 5</skill>
+		<skill>Process Automation, 5</skill>
 	</requirements>
 	<salary>$85,240</salary>
 </job>
 <job>
 	<title>Android Software Developer</title>
 	<requirements>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Model/View/Controller, 2</skill>
-		<skill>Troubleshooting, 2</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Model/View/Controller, 5</skill>
+		<skill>Troubleshooting, 5</skill>
 		<skill>Software Design, 2 </skill>
-		<skill>Android OS, 2</skill>
-		<skill>Android SDK, 2</skill>
-		<skill>Declarative Programming Languages, 2</skill>
-		<skill>Mobile Development Lifecycle, 2</skill>
-		<skill>Unit Testing, 1</skill>
+		<skill>Android OS, 5</skill>
+		<skill>Android SDK, 5</skill>
+		<skill>Declarative Programming Languages, 5</skill>
+		<skill>Mobile Development Lifecycle, 5</skill>
+		<skill>Unit Testing, 3</skill>
 	</requirements>
 	<salary>$117,000</salary>
 </job>
 <job>
 	<title>Computer Scientist</title>
 	<requirements>
-		<skill>Hardware Systems, 1</skill>
-		<skill>Operating Systems, 1</skill>
-		<skill>Software Systems, 2</skill>
-		<skill>Software Design, 2</skill>
-		<skill>UNIX Experience, 1</skill>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 2</skill>
-		<skill>Declarative Programming Languages, 2</skill>
-		<skill>Procedural Programming Languages, 2</skill>
+		<skill>Hardware Systems, 3</skill>
+		<skill>Operating Systems, 3</skill>
+		<skill>Software Systems, 5</skill>
+		<skill>Software Design, 5</skill>
+		<skill>UNIX Experience, 3</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 5</skill>
+		<skill>Declarative Programming Languages, 5</skill>
+		<skill>Procedural Programming Languages, 5</skill>
 	</requirements>
 	<salary>$105,000</salary>
 </job>
 <job>
 	<title>Unix System Administrator</title>
 	<requirements>
-		<skill>UNIX Experience, 2</skill>
-		<skill>Hardware Systems, 1</skill>
-		<skill>Information Security, 1</skill>
-		<skill>Analyzing Information, 2</skill>
-		<skill>Networking Protocols, 2</skill>
-		<skill>Distributed Systems, 2</skill>
-		<skill>Functional Programming Languages, 1</skill>
-		<skill>Procedural Programming Languages, 1</skill>
-		<skill>Process Automation, 2</skill>
+		<skill>UNIX Experience, 5</skill>
+		<skill>Hardware Systems, 3</skill>
+		<skill>Information Security, 3</skill>
+		<skill>Analyzing Information, 5</skill>
+		<skill>Networking Protocols, 5</skill>
+		<skill>Distributed Systems, 5</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Procedural Programming Languages, 3</skill>
+		<skill>Process Automation, 5</skill>
 	</requirements>
 	<salary>$93,500</salary>
 </job>
 <job>
 	<title>.NET Software Developer</title>
 	<requirements>
-		<skill>Object Oriented Development, 2</skill>
-		<skill>Software Design, 2</skill>
-		<skill>Windows Operating System, 2</skill>
-		<skill>.NET Programming, 2</skill>
-		<skill>Software Systems, 1</skill>
-		<skill>SQL Server, 1</skill>
-		<skill>Web Development, 1</skill>
-		<skill>Declarative Programming Languages, 1</skill>
-		<skill>Functional Programming Languages, 1</skill>
-		<skill>Object Oriented Programming Languages, 2</skill>
-		<skill>Technical Writing, 1</skill>
-		<skill>Written and Verbal Communication, 1</skill>
+		<skill>Object Oriented Development, 5</skill>
+		<skill>Software Design, 5</skill>
+		<skill>Windows Operating System, 5</skill>
+		<skill>.NET Programming, 5</skill>
+		<skill>Software Systems, 3</skill>
+		<skill>SQL Server, 3</skill>
+		<skill>Web Development, 3</skill>
+		<skill>Declarative Programming Languages, 3</skill>
+		<skill>Functional Programming Languages, 3</skill>
+		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Technical Writing, 3</skill>
+		<skill>Written and Verbal Communication, 3</skill>
 	</requirements>
 	<salary>$90,400</salary>
 </job>
 <job>
 	<title>FPGA Engineer</title>
 	<requirements>
-		<skill>Hardware Systems, 2</skill>
-		<skill>Written and Verbal Communication, 1</skill>
-		<skill>Software Optimization, 2</skill>
-		<skill>Software Engineering, 1</skill>
-		<skill>Quantitative Reasoning, 2</skill>
-		<skill>Electrical Engineering, 1</skill>
-		<skill>UNIX Experience, 1</skill>
-		<skill>Procedural Programming Languages, 2</skill>
-		<skill>Functional Programming Languages, 2</skill>
-		<skill>Unit Testing, 1</skill>
-		<skill>Networking Protocols, 1</skill>
+		<skill>Hardware Systems, 5</skill>
+		<skill>Written and Verbal Communication, 3</skill>
+		<skill>Software Optimization, 5</skill>
+		<skill>Software Engineering, 3</skill>
+		<skill>Quantitative Reasoning, 5</skill>
+		<skill>Electrical Engineering, 3</skill>
+		<skill>UNIX Experience, 3</skill>
+		<skill>Procedural Programming Languages, 5</skill>
+		<skill>Functional Programming Languages, 5</skill>
+		<skill>Unit Testing, 3</skill>
+		<skill>Networking Protocols, 3</skill>
 	</requirements>
 	<salary>$130,000</salary>
 </job>
