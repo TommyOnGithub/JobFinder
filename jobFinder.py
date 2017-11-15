@@ -82,8 +82,18 @@ def profile():
     thisProfile = []
     thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
                            'firstName': current_user.firstName, 'lastName': current_user.lastName})
+    studentList = db.session.query(User.username).filter_by(isFaculty=0).all()
     skills = getSkillData(current_user.skill_id)
-    return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills)
+    return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills, studentList=studentList)
+
+@app.route('/loginAsUser', methods=['GET', 'POST'])
+@login_required
+def loginAsUser():
+    if current_user.isFaculty == 0:
+        return
+    targetUser = request.form.get('user', type=str)
+    targetUser = db.session.query(User).filter_by(username=targetUser).first()
+    return 'User Switched'
 
 @app.route('/updateProf', methods=['GET', 'POST'])
 def updateProf():

@@ -25,7 +25,11 @@ function updateSkills(){
 }
 
 function switchUser(){
-    $('#')
+    $('#userModal').modal('show');
+}
+
+function setUser(user){
+    $.post('/loginAsUser', {user: user});
 }
 
 function setupClick(){
@@ -44,6 +48,14 @@ function setupClick(){
         var updateVal =$(  $(":radio[name=skillVal]:checked").prop("labels") ).text()
         var name = $('.highlight')[0].children[0].innerText;
         setRadio(name, updateVal);
+    })
+
+    table = $('#userTable');
+    rows = table.find('tbody tr');
+    rows.on('click', function(e)
+    {
+        var row = $(this);
+        setUser(row[0].innerText);
     })
 }
 
@@ -83,6 +95,31 @@ function setupSearch(){
             table.find('tbody').prepend($('<tr class="no-result text-center"><td>No Result found</td></tr>'));
         }
     })
+
+    $('#userFilt').keyup(function(e){
+        /* Ignore tab key */
+        var code = e.keyCode || e.which;
+        if (code == '9') return;
+        /* Useful DOM data and selectors */
+        var input = $(this);
+        var inputContent = input.val().toLowerCase();
+        model = input.parents();
+        table = model.find('#userTable');
+        table.show();
+        rows = table.find('tbody tr');
+        rows.removeClass('highlight');
+        rows.removeClass('lightlight');
+        var filteredRows = rows.filter(function(){
+            var value = $(this).find('td').text().toLowerCase();
+            return value.indexOf(inputContent) === -1;
+        });
+        table.find('tbody .no-result').remove();
+        rows.show();
+        filteredRows.hide();
+        if (filteredRows.length == rows.length) {
+            table.find('tbody').prepend($('<tr class="no-result text-center"><td>No Result found</td></tr>'));
+        }
+    })
 }
 
 function setupRows(){
@@ -99,6 +136,25 @@ function setupRows(){
         var row = $(this);
         if ($(row).hasClass( "highlight" ))
         {
+            rows.removeClass('lightlight');
+        }
+        else
+        {
+            rows.removeClass('lightlight');
+            row.addClass('lightlight');
+        }
+    })
+    table = $('#userTable');
+    rows = table.find('tbody tr');
+    rows.on('click', function(e){
+        var row = $(this);
+        rows.removeClass('highlight');
+        rows.removeClass('lightlight');
+        row.addClass('highlight');
+    })
+    rows.on('mouseenter', function(e){
+        var row = $(this);
+        if ($(row).hasClass('highlight')){
             rows.removeClass('lightlight');
         }
         else
