@@ -287,7 +287,7 @@ def search_by_job(user, job):
     user.recent_search = ';'.join(str(t) for t in (sort_results(resultDict)))
     db.session.add(search)
     db.session.commit()
-    return resultDict
+    return missing_skills
 
 def sort_results(resultDict):
     l = list()
