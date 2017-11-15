@@ -161,8 +161,13 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
-            <button class="btn btn-primary btn-md" onclick="updateSkills()">Update Skills</button>
+            {% if ghost == 0 %}
+                <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
+                <button class="btn btn-primary btn-md" onclick="updateSkills()">Update Skills</button>
+            {% else %}
+                <button class="btn btn-primary btn-md" onclick="updateProf()" disabled>Update Profile</button>
+                <button class="btn btn-primary btn-md" onclick="updateSkills()" disabled>Update Skills</button>
+            {% endif %}
             {% if user.isAdmin %}
                 <button class="btn btn-primary btn-md" onclick="setFaculty()">Set Faculty</button>
             {% endif %}

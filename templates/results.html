@@ -98,12 +98,14 @@
     <br/>
     <br/>
     <table id="resultTable">
-        {% for result in results %}
-            <tr>
-                <td>{{ result[0] }}</td>
-                <td>{{ result[1] }}</td>
-            </tr>
-        {% endfor %}
+        {% if results %}
+            {% for result in results %}
+                <tr>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
     </table>
 </body>
 </html>

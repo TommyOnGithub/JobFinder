@@ -30,6 +30,8 @@ function switchUser(){
 
 function setUser(user){
     $.post('/loginAsUser', {user: user});
+    $('#userModal').modal('hide');
+    location.reload();
 }
 
 function setupClick(){

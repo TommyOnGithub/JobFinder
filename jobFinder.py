@@ -45,8 +45,8 @@ def register():
             user.set_password(form.password.data)
             user.skill_id = db.session.query(Skill).filter_by(id=userSkill.id).first().id
             ###REMOVE TWO FOLLOWING LINES
-            user.isAdmin = 1
-            user.isFaculty = 1
+            #user.isAdmin = 1
+            #user.isFaculty = 1
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('login'))
@@ -72,19 +72,36 @@ def login():
 @app.route('/logout')
 def logout():
     '''Logs out a user by clearing session information'''
-    session.clear()
-    return redirect(url_for('login'))
+    if current_user.ghosting:
+        current_user.ghosting = None
+        db.session.commit()
+        return redirect(url_for('profile'))
+    else:
+        session.clear()
+        return redirect(url_for('login'))
 
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
     thisProfile = []
-    thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
-                           'firstName': current_user.firstName, 'lastName': current_user.lastName})
+
     studentList = db.session.query(User.username).filter_by(isFaculty=0).all()
-    skills = getSkillData(current_user.skill_id)
-    return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills, studentList=studentList)
+    if current_user.ghosting:
+        ghostID = current_user.ghosting
+        ghostUser = db.session.query(User).filter_by(id=ghostID).first()
+        thisProfile.insert(0, {'username': ghostUser.username, 'email': ghostUser.email,
+                               'firstName': ghostUser.firstName, 'lastName': ghostUser.lastName})
+        skills = getSkillData(ghostID)
+        return render_template('profile.html', user=ghostUser, userProfile=thisProfile, skills=skills,
+                               studentList=studentList, ghost=1)
+    else:
+        thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
+                               'firstName': current_user.firstName, 'lastName': current_user.lastName})
+        skills = getSkillData(current_user.skill_id)
+        return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills,
+                               studentList=studentList, ghost=0)
+
 
 @app.route('/loginAsUser', methods=['GET', 'POST'])
 @login_required
@@ -93,6 +110,8 @@ def loginAsUser():
         return
     targetUser = request.form.get('user', type=str)
     targetUser = db.session.query(User).filter_by(username=targetUser).first()
+    current_user.ghosting = targetUser.id
+    db.session.commit()
     return 'User Switched'
 
 @app.route('/updateProf', methods=['GET', 'POST'])
@@ -122,24 +141,43 @@ def main():
         current_user.username
     except AttributeError:
         return render_template('main.html', user=None, majors=majors, jobs=jobs)
-    return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
+    if current_user.ghosting:
+        ghostUser = db.session.query(User).filter_by(id=current_user.ghosting).first()
+        return render_template('main.html', user=ghostUser, majors=majors, jobs=jobs)
+    else:
+        return render_template('main.html', user=current_user, majors=majors, jobs=jobs)
 
 @app.route('/runMatch', methods=['GET', 'POST'])
 @login_required
 def runMatch():
     name = request.form.get('name', type=str)
     name = name.split(' - ')
-    if name[0] == 'Degree':
-        search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
-    elif name[0] == 'Job':
-        search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
+    if current_user.ghosting:
+        ghostUser = db.session.query(User).filter_by(id=current_user.ghosting).first()
+        if name[0] == 'Degree':
+            search_by_degree(ghostUser, db.session.query(Degree).filter_by(name=name[1]).first())
+        elif name[0] == 'Job':
+            search_by_job(ghostUser, db.session.query(Job).filter_by(name=name[1]).first())
+    else:
+        if name[0] == 'Degree':
+            search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
+        elif name[0] == 'Job':
+            search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
     return 'Matched'
 
 @app.route('/results', methods=['GET', 'POST'])
 @login_required
 def results():
-    results = current_user.get_recent_search()
-    return render_template('results.html', user=current_user, results=results)
+    if current_user.ghosting:
+        ghostUser = db.session.query(User).filter_by(id=current_user.ghosting).first()
+        try:
+            results = ghostUser.get_recent_search()
+        except AttributeError:
+            results = ''
+        return render_template('results.html', user=ghostUser, results=results)
+    else:
+        results = current_user.get_recent_search()
+        return render_template('results.html', user=current_user, results=results)
 
 
 def setSkills(userInst, skills):
