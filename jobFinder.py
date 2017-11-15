@@ -279,7 +279,7 @@ def search_by_job(user, job):
                 if degree_skills[skill] >= missing_skills[skill]:
                     resultDict[degree] += 100.00
                 else:
-                    resultDict[degree] = ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
+                    resultDict[degree] += ((degree_skills[skill]*1.00) / missing_skills[skill]) * 100.00
         resultDict[degree] = float('%.2f'%(resultDict[degree] / skill_num))
     search = Search()
     search.user_id = user.get_id()
