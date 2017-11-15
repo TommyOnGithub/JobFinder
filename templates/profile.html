@@ -128,6 +128,9 @@
             </table>
             <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
             <button class="btn btn-primary btn-md" onclick="updateSkills()">Update Skills</button>
+            {% if user.isAdmin %}
+                <button class="btn btn-primary btn-md" onclick="setFaculty()">Set Faculty</button>
+            {% endif %}
             {% if user.isFaculty %}
                 <button class="btn btn-primary btn-md" onclick="switchUser()">View Students</button>
             {% endif %}

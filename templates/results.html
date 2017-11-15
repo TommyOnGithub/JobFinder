@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/static/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
-    <link href="/static/main/main.css" rel="stylesheet" type="text/css">
-    <script src="/static/main/main.js"></script>
+    <link href="/static/results/results.css" rel="stylesheet" type="text/css">
+    <script src="/static/results/results.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -97,13 +97,6 @@
     <br/>
     <br/>
     <br/>
-    <div>Search:</div>
-    <input type="text" id="searchFilt" class="form-control" placeholder="Name to search">
-    <div>Search By:</div>
-    <label for="majorCheck">Major:</label>
-    <input type="checkbox" id="majorCheck">
-    <label for="jobCheck">Job:</label>
-    <input type="checkbox" id="jobCheck">
     <table id="resultTable">
         {% for result in results %}
             <tr>

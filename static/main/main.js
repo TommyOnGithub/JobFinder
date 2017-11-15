@@ -77,7 +77,9 @@ function showInfo(header){
 }
 
 function runMatch(){
+    $('#infoModal').modal('hide');
     $.post('/runMatch', {name: $('#infoTitle').text()});
+    window.location.href = ("results");
 }
 
 function setupRows(){

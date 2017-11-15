@@ -44,6 +44,9 @@ def register():
             db.session.flush()
             user.set_password(form.password.data)
             user.skill_id = db.session.query(Skill).filter_by(id=userSkill.id).first().id
+            ###REMOVE TWO FOLLOWING LINES
+            user.isAdmin = 1
+            user.isFaculty = 1
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('login'))
@@ -120,13 +123,12 @@ def runMatch():
         search_by_degree(current_user, db.session.query(Degree).filter_by(name=name[1]).first())
     elif name[0] == 'Job':
         search_by_job(current_user, db.session.query(Job).filter_by(name=name[1]).first())
-    results = current_user.lastMatch
-    return render_template('results.html', user=current_user, results=results)
+    return 'Matched'
 
 @app.route('/results', methods=['GET', 'POST'])
 @login_required
 def results():
-    results = current_user.lastMatch
+    results = current_user.get_recent_search()
     return render_template('results.html', user=current_user, results=results)
 
 
