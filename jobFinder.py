@@ -248,18 +248,11 @@ def search_by_degree(user, degree):
         skill_num = 0.00
         resultDict[job] = 0.00
         for skill in job_skills.iterkeys():
-            skill_val = 0 if job_skills[skill] == 0 else (3 if job_skills[skill] == 1 else 5) #temp
             skill_num += 1.00
-            '''
             if combined_skills[skill] >= job_skills[skill]:
                 resultDict[job] += 100.00
             else:
                 resultDict[job] += ((combined_skills[skill]*1.00) / job_skills[skill]) * 100.00
-            '''
-            if combined_skills[skill] >= skill_val:
-                resultDict[job] += 100.00
-            else:
-                resultDict[job] += ((combined_skills[skill]*1.00) / skill_val) * 100.00
         resultDict[job] = float('%.2f'%(resultDict[job] / skill_num))
     search = Search()
     search.user_id = user.get_id()
@@ -275,9 +268,7 @@ def search_by_job(user, job):
     job_skills = getSkillData(job.get_id())
     missing_skills = {}
     for k in user_skills.iterkeys():
-        skill_val = 0 if job_skills[k] == 0 else (3 if job_skills[k] == 1 else 5) #temp
-        #missing_skills[k] = job_skills[k] - user_skills[k]
-        missing_skills[k] = skill_val - user_skills[k]
+        missing_skills[k] = job_skills[k] - user_skills[k]
         if missing_skills[k] < 0:
             missing_skills[k] = 0
     degrees = getAllDegrees()
