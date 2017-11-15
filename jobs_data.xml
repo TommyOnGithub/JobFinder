@@ -170,7 +170,11 @@
 <job>
 	<title>Software QA Engineer</title>
 	<description>
-		
+		Quality Assurance (QA) Engineers monitor the development process at every
+		stage to ensure that the final product is of a high quality and will arrive
+		on time. Development processes include steps for ensuring t hat products meet
+		the needs and terms of the customer. QA engineers are responsible for seeing
+		those requirements through to a timely delivery.
 	</description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 3</skill>
@@ -188,9 +192,16 @@
 </job>
 <job>
 	<title>Android Software Developer</title>
-	<description></description>
+	<description>
+		Android software developers are experts focused on building and maintaining
+		Android applications. These developers are often skilled application
+		programmers or UI design specialists. Android development is somewhat of a
+		niche, but a skilled app developer will be well versed in generally applicable
+		skills such as object-oriented development, unit testing, and code optimization.
+	</description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 5</skill>
+		<skill>Object Oriented Development, 5</skill>
 		<skill>Model/View/Controller, 5</skill>
 		<skill>Troubleshooting, 5</skill>
 		<skill>Software Design, 2 </skill>
@@ -204,7 +215,15 @@
 </job>
 <job>
 	<title>Computer Scientist</title>
-	<description></description>
+	<description>
+		A career as a computer scientist is best suited for those who are good at math and
+		detail-oriented. Computer scientists work for government agencies, private
+		software publishers, engineering firms, and academic institutions to conduct
+		research or solve problems in a variety of fields. Often they are employed for the
+		purpose of developing a new product, or solving computing problems. Computer
+		scientists will sometimes work closely with programmers and other IT and
+		scientific professionals.
+	</description>
 	<requirements>
 		<skill>Hardware Systems, 3</skill>
 		<skill>Operating Systems, 3</skill>
@@ -220,7 +239,14 @@
 </job>
 <job>
 	<title>Unix System Administrator</title>
-	<description></description>
+	<description>
+		UNIX and Linux system administrators provide support for all UNIX/Linux based
+		software by implementing, monitoring, and maintaining systems and application
+		software running UNIX or Linux-based operating systems. Networking, database
+		management, and process automation are  vital skills for sys admins. These
+		individuals must stay abreast of current technology and anticipate what is on the
+		horizon in their field.
+	</description>
 	<requirements>
 		<skill>UNIX Experience, 5</skill>
 		<skill>Hardware Systems, 3</skill>
@@ -236,7 +262,14 @@
 </job>
 <job>
 	<title>.NET Software Developer</title>
-	<description></description>
+	<description>
+		.NET Framework is a software framework developed by Microsoft. Software written
+		in C# or VB.NET is supported by the .NET framework and most .NET developers are
+		familiar with both languages. .NET developers should be well-rounded developers
+		but have extra expertise in object-oriented development using the Microsoft and
+		.NET suite of tools. Familiarity with various design patterns and writing using
+		reusable libraries is also necessary.
+	</description>
 	<requirements>
 		<skill>Object Oriented Development, 5</skill>
 		<skill>Software Design, 5</skill>
@@ -255,7 +288,13 @@
 </job>
 <job>
 	<title>FPGA Engineer</title>
-	<description></description>
+	<description>
+		FPGA engineers work on the cutting edge of computing to develop high performance
+		FPGA hardware solutions and solve problems in fast networking and high
+		performance computing. These individuals have a strong background in
+		mathematics, RTL development, and other hardware/software development
+		experience.
+	</description>
 	<requirements>
 		<skill>Hardware Systems, 5</skill>
 		<skill>Written and Verbal Communication, 3</skill>
