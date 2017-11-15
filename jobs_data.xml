@@ -2,6 +2,13 @@
 <cs_occuptions>
 <job>
 	<title>Systems Engineer</title>
+	<description>
+		Systems engineers play a crucial role in guiding complex projects
+		from conception to completion. Part engineer and part project
+		manager, a systems engineer oversees the development of a system
+		that addresses a defined need, managing the many disciplines and
+		specialty groups required to make it a reality.
+	</description>
 	<requirements>
 		<skill>Procedural Programming Languages, 5</skill>
 		<skill>Declarative Programming Languages, 5</skill>
@@ -22,6 +29,12 @@
 </job>
 <job>
 	<title>Software Systems Engineer</title>
+	<description>
+		Software systems engineers help to maintain and innovate upon
+		established software systems. Usually working as part of a team,
+		Software systems engineers develop, modify and code software
+		systems programming applications.
+	</description>
 	<requirements>
 		<skill>Declarative Programming Languages, 3</skill>
 		<skill>Procedural Programming Languages, 3</skill>
@@ -37,6 +50,15 @@
 </job>
 <job>
 	<title>Solutions Architect</title>
+	<description>
+		A solutions architect focuses on converting a set of requirements
+		into the architecture and design of a technology solution.
+		Solution architects rely on previously developed design patterns,
+		published reference architecture, and on guidance from enterprise
+		architecture. These individuals play an important role in ensuring
+		the solution architecture is the best possible fit within the
+		existing business.
+	</description>
 	<requirements>
 		<skill>Object Oriented Development, 5</skill>
 		<skill>Object Oriented Programming Languages, 3</skill>
@@ -52,6 +74,14 @@
 </job>
 <job>
 	<title>Programmer Analyst</title>
+	<description>
+		Performing the jobs of both an analyst and a programmer,
+		programmer analysts are expected to translate business needs
+		into a design plan as well as sometimes program and test the
+		software that they designed. Programmer analysts are expected
+		to stay up-to-date with existing technologies and know what's on
+		the horizon in their industry.
+	</description>
 	<requirements>
 		<skill>Analyzing Information, 5</skill>
 		<skill>Procedural Programming Languages, 3</skill>
@@ -68,6 +98,15 @@
 </job>
 <job>
 	<title>Software Applications Developer</title>
+	<description>
+		Simply put, an app developer is the person who creates, tests, and
+		programs applications software for computers. These days, phones, TVs,
+		cars, appliances, and even doorbells all run software developed by an
+		app developer somewhere along the line. These individuals often work in
+		teams to hash out solutions to an unlimited number of problems, develop
+		those solutions into a workable plan, and finally implement the plan
+		in an elegant solution.
+	</description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 5</skill>
 		<skill>Functional Programming Languages, 5</skill>
@@ -82,6 +121,14 @@
 </job>
 <job>
 	<title>Web Developer</title>
+	<description>
+		Web developers build and shape a visitor's experience at a website. They
+		do this through the creation of page layouts, website styling, and page
+		features such as graphics and dynamic animations. Through the expert
+		implementation of coding languages like HTML, CSS, and JavaScript, web
+		developers bring websites and web-based applications to life in a way
+		that engages users and makes their product a pleasure to use.
+	</description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 5</skill>
 		<skill>Declarative Programming Languages, 5</skill>
@@ -99,6 +146,15 @@
 </job>
 <job>
 	<title>Database Administrator</title>
+	<description>
+		Database administrators, "DB admins", or DBAs are the gatekeepers of
+		the world's data. DBAs use computers to store data in an organized and
+		secure manner so that it can be accessed at any time by authorized
+		individuals and never by bad actors. Most people don't know what a DBA
+		is or what they do, but without them we would all be hoarding canned goods
+		and ammunition and warming up at the end of the day huddled around a
+		trashcan fire.
+	</description>
 	<requirements>
 		<skill>Database Performance Tuning, 5</skill>
 		<skill>Database Security, 5</skill>
@@ -113,6 +169,9 @@
 </job>
 <job>
 	<title>Software QA Engineer</title>
+	<description>
+		
+	</description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 3</skill>
 		<skill>Procedural Programming Languages, 3</skill>
@@ -129,6 +188,7 @@
 </job>
 <job>
 	<title>Android Software Developer</title>
+	<description></description>
 	<requirements>
 		<skill>Object Oriented Programming Languages, 5</skill>
 		<skill>Model/View/Controller, 5</skill>
@@ -144,6 +204,7 @@
 </job>
 <job>
 	<title>Computer Scientist</title>
+	<description></description>
 	<requirements>
 		<skill>Hardware Systems, 3</skill>
 		<skill>Operating Systems, 3</skill>
@@ -159,6 +220,7 @@
 </job>
 <job>
 	<title>Unix System Administrator</title>
+	<description></description>
 	<requirements>
 		<skill>UNIX Experience, 5</skill>
 		<skill>Hardware Systems, 3</skill>
@@ -174,6 +236,7 @@
 </job>
 <job>
 	<title>.NET Software Developer</title>
+	<description></description>
 	<requirements>
 		<skill>Object Oriented Development, 5</skill>
 		<skill>Software Design, 5</skill>
@@ -192,6 +255,7 @@
 </job>
 <job>
 	<title>FPGA Engineer</title>
+	<description></description>
 	<requirements>
 		<skill>Hardware Systems, 5</skill>
 		<skill>Written and Verbal Communication, 3</skill>
