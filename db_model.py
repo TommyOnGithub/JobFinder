@@ -27,6 +27,7 @@ class User(db.Model):
     isFaculty = db.Column(db.Boolean, default=False)
     skill_id = db.Column(db.Integer, db.ForeignKey('skill.id'))
     recent_search = db.Column(db.String())
+    ghosting = db.Column(db.Integer)
     skills = db.relationship("Skill")
 
     def __repr__(self):
@@ -141,6 +142,7 @@ class Job(db.Model):
     __tablename__ = 'job'
     id = db.Column(db.Integer, db.ForeignKey('skill.id'))
     name = db.Column(db.String(), primary_key=True)
+    description = db.Column(db.String())
     skills = db.relationship("Skill")
 
     def get_id(self):
@@ -153,6 +155,7 @@ class Degree(db.Model):
     __tablename__ = 'degree'
     id = db.Column(db.Integer, db.ForeignKey('skill.id'))
     name = db.Column(db.String(), primary_key=True)
+    description = db.Column(db.String())
     skills = db.relationship("Skill")
 
     def get_id(self):
@@ -160,10 +163,6 @@ class Degree(db.Model):
 
     def get_name(self):
         return self.name
-
-class List(db.Model):
-    __tablename__ = 'list'
-    name = db.Column(db.String(), primary_key=True)
 
 
 class Search(db.Model):
