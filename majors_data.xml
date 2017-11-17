@@ -2,6 +2,10 @@
 <cs_majors>
 <major>
 	<title>Applied Technology</title>
+	<description>
+		This is a joint degree with The School for New Learning for experienced IT professionals who wish to acquire advanced technical skills in a highly focused area, in combination with enhanced understanding of the larger organizational, economic, and social contexts within which these technical skills are practiced.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Object Oriented Development</skill>
 		<skill>Coding Experience</skill>
@@ -11,18 +15,24 @@
 		<skill>Functional Programming Languages</skill>
 		<skill>Troubleshooting</skill>
 		<skill>Process Automation</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>UNIX Experience</skill>
 		<skill>Software Engineering Best Practices</skill>
 	</requirements>
 </major>
 <major>
 	<title>Business Information Technology</title>
+	<description>
+		Provides an understanding of the core principles for the management of information in corporations, health care institutions, and government agencies. Joint degree between CDM and The Kellstadt Graduate School of Business.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Operating Systems</skill>
 		<skill>Analyzing Information</skill>
 		<skill>Troubleshooting</skill>
 		<skill>Networking Protocols</skill>
 		<skill>Operating Systems</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Information Security</skill>
 		<skill>Hardware Systems</skill>
 		<skill>Written and Verbal Communication</skill>
@@ -32,6 +42,10 @@
 </major>
 <major>
 	<title>Game Programming</title>
+	<description>
+		Is designed for those interested in game development programming at the highest level, including computer science and computer graphics professionals retooling for the game industry.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Written and Verbal Communication</skill>
 		<skill>Model/View/Controller</skill>
@@ -48,6 +62,10 @@
 </major>
 <major>
 	<title>Computational Finance</title>
+	<description>
+		Is a joint degree between CDM and the Kellstadt Graduate School of Business, offering students the skills to approach financial models through a quantitative framework. The program prepares students for careers in the field of quantitative financial analysis in areas including portfolio management, risk management, and financial engineering.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Analyzing Information</skill>
 		<skill>Procedural Programming Languages</skill>
@@ -58,21 +76,42 @@
 		<skill>Software Design</skill>
 		<skill>Software Development Fundamentals</skill>
 		<skill>Software Documentation</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Software Testing</skill>
 		<skill>Software Engineering Best Practices</skill>
 	</requirements>
 </major>
 <major>
 	<title>Computer and Information Sciences</title>
+	<description>
+		offers an opportunity for exceptional students to pursue substantial research in the computer sciences and related areas. To earn a PhD degree, a student must demonstrate breadth of knowledge in at least two research areas and significant depth in a chosen dissertation area. In addition, the student must conceive, write and defend a PhD dissertation representing a significant and original contribution to current academic research as demonstrated by a public dissertation defense and publication in established peer-reviewed academic conferences and/or journals.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
+		<skill>Information Security</skill>
 		<skill>Troubleshooting</skill>
 		<skill>Software Design</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Software Testing</skill>
 		<skill>Software Engineering Best Practices</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Declarative Programming Languages</skill>
+		<skill>Functional Programming Languages</skill>
+		<skill>Object Oriented Programming Languages</skill>
+		<skill>Object Oriented Development</skill>
+		<skill>UNIX Experience</skill>
+		<skill>Operating System</skill>
+		<skill>Software Design</skill>
+		<skill>Distributed Systems</skill>
+		<skill>Written and Verbal Communication</skill>
 	</requirements>
 </major>
 <major>
 	<title>Computer Science</title>
+	<description>
+		Exposes students to the complete life-cycle of computer application development including abstraction, modeling and algorithm development, leveraging computer systems, programming languages and development frameworks, and software development techniques and processes. It prepares students for a professional career in Software Development or Computer Science Research.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Distributed Systems</skill>
 		<skill>Procedural Programming Languages</skill>
@@ -82,17 +121,24 @@
 		<skill>Object Oriented Development</skill>
 		<skill>UNIX Experience</skill>
 		<skill>Operating System</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Software Design</skill>
 		<skill>Web Frameworks</skill>
 	</requirements>
 </major>
 <major>
 	<title>Cybersecurity</title>
+	<description>
+		Is intended for students who wish to specialize in the security aspects of Information Technology. Students will learn how to design, implement and maintain software systems designed to support security policy and network architecture consistent with mitigating risk and preventing hostile attacks.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Distributed Systems</skill>
 		<skill>Database Performance Tuning</skill>
 		<skill>Database Security</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Troubleshooting</skill>
+		<skill>Information Security</skill>
 		<skill>Written and Verbal Communication</skill>
 		<skill>Database Management</skill>
 		<skill>Data Maintenance</skill>
@@ -101,50 +147,91 @@
 </major>
 <major>
 	<title>E-Commerce Technology</title>
+	<description>
+		Is designed for those who want to specialize in e-business systems development and management. The program provides flexible, modularized advanced training in e-business systems as well as competencies in Internet application development, advanced Internet technologies, and wireless applications.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
+		<skill>Technical Writing</skill>
+		<skill>Troubleshooting</skill>
+		<skill>Analyzing Information</skill>
+		<skill>Android OS</skill>
+		<skill>Web Development</skill>
+		<skill>Written and Verbal Communication</skill>
+		<skill>Quantitative reasoning</skill>
 	</requirements>
 </major>
 <major>
 	<title>Health Informatics</title>
+	<description>
+		Provides students with the skills and knowledge needed to implement and support information technology solutions for health sector organizations.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
-		<skill>Java</skill>
+		<skill>Analyzing Information</skill>
+		<skill>Software Systems</skill>
+		<skill>Process Automation</skill>
+		<skill>SQL Server</skill>
+		<skill>Technical Writing</skill>
 		<skill>Model/View/Controller</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>Android OS</skill>
 		<skill>Android SDK</skill>
-		<skill>REST API</skill>
-		<skill>JSON</skill>
-		<skill>Mobile Development Lifecycle</skill>
+		<skill>Declarative Programming Langauges</skill>
 	</requirements>
 </major>
 <major>
 	<title>Human-Computer Interaction</title>
+	<description>
+		Focuses on the design, implementation, and evaluation of computer interfaces that are accessible and easy for people to use.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
+		<skill>Technical Writing</skill>
+		<skill>Android OS</skill>
+		<skill>Android SDK</skill>
 		<skill>Hardware Systems</skill>
 		<skill>Programming Languages</skill>
 		<skill>Operating Systems</skill>
 		<skill>Software Systems</skill>
 		<skill>Software Design</skill>
+		<skill>Android OS</skill>
+		<skill>Android SDK</skill>
+		<skill>Declarative Programming Langauges</skill>
+		<skill>Procedural Programming Languages</skill>
+		<skill>Mobile Development Lifecycle</skill>
 	</requirements>
 </major>
 <major>
 	<title>Information Systems</title>
+	<description>
+		Focuses on the planning, development and management of information systems that enable organizations to gain strategic and tactical competitive advantage.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
+		<skill>Technical Writing</skill>
 		<skill>UNIX Experience</skill>
 		<skill>Hardware Systems</skill>
 		<skill>Information Security</skill>
 		<skill>Analyzing Information</skill>
 		<skill>Networking Protocols</skill>
 		<skill>Distributed Systems</skill>
+		<skill>Quantitative Reasoning</skill>
 	</requirements>
 </major>
 <major>
 	<title>Network Engineering and Security</title>
+	<description>
+		Trains professionals who meet current industry demands for innovative network designs, and the development of new network applications and services for business enterprises and the network providers that serve them. This program offers theoretical and applied study of the design, configuration and management of converged communication networks
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Distributed Systems</skill>
 		<skill>Software Development</skill>
 		<skill>Software Design</skill>
 		<skill>Windows Operating System</skill>
 		<skill>.NET Programming</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>SQL Server</skill>
 		<skill>Web Development</skill>
 		<skill>Technical Writing</skill>
@@ -153,6 +240,10 @@
 </major>
 <major>
 	<title>Predictive Analytics</title>
+	<description>
+		Graduates of this program will obtain a variety of skills required for a career in predictive analytics, including the ability to analyze large datasets and to develop modeling solutions to support decision making, a good understanding of the fundamental principles of marketing and customer relationship management, and communication skills to present results effectively to a non-technical business audience. The program aims to prepare students with the required qualifications to become data mining analysts/engineers or predictive modelers.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
 		<skill>Written and Verbal Communication</skill>
 		<skill>Technical Writing</skill>
@@ -160,11 +251,18 @@
 		<skill>SQL Server</skill>
 		<skill>Troubleshooting</skill>
 		<skill>Analyzing Information</skill>
+		<skill>Quantitative Reasoning</skill>
 	</requirements>
 </major>
 <major>
 	<title>Software Engineering</title>
+	<description>
+		Provides students with marketable skills in methodologies, techniques, and tools of software engineering. The program encompasses the entire life-cycle of software development including requirements, analysis, design, construction, testing, and project management. Emphasis is placed on current and emerging technologies for engineering large and complex distributed software systems. According to the US Bureau of Labor Statistics, software engineer has been among the fastest growing IT professions in the US.
+		- from cdm.depaul.edu
+	</description>
 	<requirements>
+		<skill>Technical Writing</skill>
+		<skill>Quantitative Reasoning</skill>
 		<skill>.NET Programming</skill>
 		<skill>Object Oriented Development</skill>
 		<skill>Object Oriented Programming Languages</skill>
