@@ -114,6 +114,15 @@ def loginAsUser():
     db.session.commit()
     return 'User Switched'
 
+@app.route('/setFaculty', methods=['GET', 'POST'])
+@login_required
+def setFaculty():
+    targetUser = request.form.get('user', type=str)
+    targetUser = db.session.query(User).filter_by(username=targetUser).first()
+    targetUser.isFaculty = 1
+    db.session.commit()
+    return 'Faculty Set'
+
 @app.route('/updateProf', methods=['GET', 'POST'])
 def updateProf():
     user_instance = db.session.query(User).filter_by(username=current_user.username).first()
