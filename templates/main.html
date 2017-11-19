@@ -78,6 +78,7 @@
                     <h4 class="modal-title" id="infoTitle"></h4>
                 </div>
                 <div class="ModalBody">
+                    <div id="description"></div>
                     {% if user %}
                         <div>
                             <button type="button" class="btn btn-default" onclick="runMatch()">Run Match</button>
@@ -106,14 +107,14 @@
     <input type="checkbox" id="jobCheck">
     <table id="majorTable">
         {% for major in majors %}
-            <tr>
+            <tr data-desc="{{ major.description }}">
                 <td>{{ major.name }}</td>
             </tr>
         {% endfor %}
     </table>
     <table id="jobTable">
         {% for job in jobs %}
-            <tr>
+            <tr data-desc="{{ job.description }}">
                 <td>{{ job.name }}</td>
             </tr>
         {% endfor %}

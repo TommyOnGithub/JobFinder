@@ -144,8 +144,8 @@ def updateProf():
 @app.route('/main', methods=['GET', 'POST'])
 def main():
     getXML()
-    majors = db.session.query(Degree.name).all()
-    jobs = db.session.query(Job.name).all()
+    majors = db.session.query(Degree).all()
+    jobs = db.session.query(Job).all()
     try:
         current_user.username
     except AttributeError:
@@ -213,6 +213,7 @@ def getXML():
             jobSkills = db.session.query(Skill).filter_by(id=skillTab.id).first()
             jobTab = Job()
             jobTab.name = job.find('title').text
+            jobTab.description = job.find('description').text
             jobTab.id = jobSkills.id
             db.session.add(jobTab)
             db.session.commit()
@@ -233,6 +234,7 @@ def getXML():
             majorSkills = db.session.query(Skill).filter_by(id=skillTab.id).first()
             degree = Degree()
             degree.name = major.find('title').text
+            degree.description = major.find('description').text
             degree.id = majorSkills.id
             db.session.add(degree)
             db.session.commit()
