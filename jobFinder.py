@@ -141,6 +141,20 @@ def updateProf():
     db.session.commit()
     return 'Updated'
 
+@app.route('/deleteUser', methods=['GET', 'POST'])
+@login_required
+def deleteUser():
+    deleteUser = current_user
+    searches = db.session.query(Search).filter_by(user_id=deleteUser.id).all()
+    for search in searches:
+        db.session.delete(search)
+
+    db.session.delete(deleteUser)
+    skill = db.session.query(Skill).filter_by(id=deleteUser.skill_id).first()
+    db.session.delete(skill)
+    db.session.commit()
+    return 'deleted'
+
 @app.route('/main', methods=['GET', 'POST'])
 def main():
     getXML()
@@ -357,6 +371,16 @@ def sort_results(resultDict):
     for key in resultDict.iterkeys():
         l.append((key, resultDict[key]))
     return sorted(l, key=lambda entry: entry[1], reverse=True)
+
+def get_search_params(user_id):
+    q = db.session.query(db.func.max(Search.search_number)).\
+        join(Search.user).\
+        filter(User.id==user_id).all()
+    search = db.session.query(Search).get(q[0][0])
+    return search.using
+
+def get_search_history():
+    return db.session.query(Search.using, db.func.count(Search.using)).group_by(Search.using).all()
 
 
 if __name__ == '__main__':

@@ -12,6 +12,65 @@
     <script src="/static/login/login.js"></script>
 </head>
 <body role="document">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar"
+                        data-toggle="collapse" type="button">
+                    <span class="sr-only">
+                        Toggle navigation
+                    </span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="main">
+                    Job Finder
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {% if user %}
+                    <li>
+                        <a href="profile">
+                            Profile
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="active">
+                        <a href="main">
+                            Main
+                        </a>
+                    </li>
+		    {% if user %}
+                    <li>
+                        <a href="results">
+                            Results
+                        </a>
+                    </li>
+		    {% endif %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="margin-info pull-right">
+                        {% if user %}
+                            <p class="margin-text" align="right">Logged in as <a href="/profile">{{ user.username }}</a>
+                                <br/>
+                                <a href="/logout">Logout</a>
+                                <br/>
+                            </p>
+			            {% else %}
+                            <p class="margin-text" align="right"> Guest User
+                                <br/>
+                                <a href="/login">Login</a>
+                                <br/>
+                                <a href="/register">Register</a>
+                                <br/>
+                            </p>
+                        {% endif %}
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class="title text-center">
     {% if refusePrompt %}
         <h1>{{ refusePrompt }}</h1>
