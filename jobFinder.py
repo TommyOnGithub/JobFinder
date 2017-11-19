@@ -372,6 +372,16 @@ def sort_results(resultDict):
         l.append((key, resultDict[key]))
     return sorted(l, key=lambda entry: entry[1], reverse=True)
 
+def get_search_params(user_id):
+    q = db.session.query(db.func.max(Search.search_number)).\
+        join(Search.user).\
+        filter(User.id==user_id).all()
+    search = db.session.query(Search).get(q[0][0])
+    return search.using
+
+def get_search_history():
+    return db.session.query(Search.using, db.func.count(Search.using)).group_by(Search.using).all()
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
