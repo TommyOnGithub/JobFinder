@@ -43,7 +43,14 @@ function searchStats(){
         window.URL = window.webkitURL || window.URL;
         var contentType = 'text/csv';
         stats = JSON.parse(stats);
-        var csvFile = new Blob([stats], {type: contentType});
+        var newString = [];
+        var string;
+        var key = 0;
+        stats.map(function(arrayCell){
+            string = arrayCell[0] + "," + arrayCell[1];
+            newString = newString + "\n" + string;
+        })
+        var csvFile = new Blob([newString], {type: contentType});
         var a = document.createElement('a');
         a.download = 'JobFinderStats.csv';
         a.href = window.URL.createObjectURL(csvFile);

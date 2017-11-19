@@ -89,7 +89,12 @@ def profile():
     studentList = db.session.query(User.username).filter_by(isFaculty=0).all()
     if current_user.ghosting:
         ghostID = current_user.ghosting
-        ghostUser = db.session.query(User).filter_by(id=ghostID).first()
+        try:
+            ghostUser = db.session.query(User).filter_by(id=ghostID).first()
+        except AttributeError:
+            current_user.ghosting = None
+            db.session.commit()
+            profile()
         thisProfile.insert(0, {'username': ghostUser.username, 'email': ghostUser.email,
                                'firstName': ghostUser.firstName, 'lastName': ghostUser.lastName})
         skills = getSkillData(ghostUser.skill_id)
@@ -117,6 +122,7 @@ def loginAsUser():
 @app.route('/statistics', methods=['GET', 'POST'])
 @login_required
 def statistics():
+    stats = get_search_history()
     return json.dumps(stats)
 
 @app.route('/setFaculty', methods=['GET', 'POST'])
@@ -198,14 +204,16 @@ def runMatch():
 def results():
     if current_user.ghosting:
         ghostUser = db.session.query(User).filter_by(id=current_user.ghosting).first()
+        params = get_search_params(ghostUser.id)
         try:
             results = ghostUser.get_recent_search()
         except AttributeError:
             results = ''
-        return render_template('results.html', user=ghostUser, results=results)
+        return render_template('results.html', user=ghostUser, results=results, params=params)
     else:
+        params = get_search_params(current_user.id)
         results = current_user.get_recent_search()
-        return render_template('results.html', user=current_user, results=results)
+        return render_template('results.html', user=current_user, results=results, params=params)
 
 
 def setSkills(userInst, skills):
