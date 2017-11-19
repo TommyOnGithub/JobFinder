@@ -141,6 +141,20 @@ def updateProf():
     db.session.commit()
     return 'Updated'
 
+@app.route('/deleteUser', methods=['GET', 'POST'])
+@login_required
+def deleteUser():
+    deleteUser = current_user
+    searches = db.session.query(Search).filter_by(user_id=deleteUser.id).all()
+    for search in searches:
+        db.session.delete(search)
+
+    db.session.delete(deleteUser)
+    skill = db.session.query(Skill).filter_by(id=deleteUser.skill_id).first()
+    db.session.delete(skill)
+    db.session.commit()
+    return 'deleted'
+
 @app.route('/main', methods=['GET', 'POST'])
 def main():
     getXML()

@@ -44,6 +44,13 @@ function setFaculty(user){
     location.reload();
 }
 
+function deleteUser(){
+    if (confirm("Are you sure you want to delete your account?")){
+        $.post('/deleteUser');
+        window.location.href = 'main';
+    };
+}
+
 function setupClick(){
     table = $('#skillTable');
     rows = table.find('tbody tr');
