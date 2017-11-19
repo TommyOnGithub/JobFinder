@@ -4,6 +4,7 @@ from app import app
 import json
 from db_model import db, User, Degree, Job, Skill, SkillNames, Search
 import xml.etree.ElementTree
+import csv
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -85,7 +86,6 @@ def logout():
 @login_required
 def profile():
     thisProfile = []
-
     studentList = db.session.query(User.username).filter_by(isFaculty=0).all()
     if current_user.ghosting:
         ghostID = current_user.ghosting
@@ -113,6 +113,11 @@ def loginAsUser():
     current_user.ghosting = targetUser.id
     db.session.commit()
     return 'User Switched'
+
+@app.route('/statistics', methods=['GET', 'POST'])
+@login_required
+def statistics():
+    return json.dumps(stats)
 
 @app.route('/setFaculty', methods=['GET', 'POST'])
 @login_required

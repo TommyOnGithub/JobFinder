@@ -38,6 +38,20 @@ function setUser(user){
     location.reload();
 }
 
+function searchStats(){
+    $.post('/statistics', function(stats){
+        window.URL = window.webkitURL || window.URL;
+        var contentType = 'text/csv';
+        stats = JSON.parse(stats);
+        var csvFile = new Blob([stats], {type: contentType});
+        var a = document.createElement('a');
+        a.download = 'JobFinderStats.csv';
+        a.href = window.URL.createObjectURL(csvFile);
+        a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+        a.click();
+    });
+}
+
 function setFaculty(user){
     $.post('/setFaculty', {user: user});
     $('#setFModal').modal('hide');
