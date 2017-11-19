@@ -45,8 +45,8 @@ def register():
             user.set_password(form.password.data)
             user.skill_id = db.session.query(Skill).filter_by(id=userSkill.id).first().id
             ###REMOVE TWO FOLLOWING LINES
-            #user.isAdmin = 1
-            #user.isFaculty = 1
+            user.isAdmin = 1
+            user.isFaculty = 1
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('login'))
@@ -92,7 +92,7 @@ def profile():
         ghostUser = db.session.query(User).filter_by(id=ghostID).first()
         thisProfile.insert(0, {'username': ghostUser.username, 'email': ghostUser.email,
                                'firstName': ghostUser.firstName, 'lastName': ghostUser.lastName})
-        skills = getSkillData(ghostID)
+        skills = getSkillData(ghostUser.skill_id)
         return render_template('profile.html', user=ghostUser, userProfile=thisProfile, skills=skills,
                                studentList=studentList, ghost=1)
     else:

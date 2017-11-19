@@ -126,42 +126,42 @@ function setupSearch(){
 
 function setupRows(){
     table = $('#skillTable');
-    rows = table.find('tbody tr');
-    rows.on('click', function(e){
+    rowsS = table.find('tbody tr');
+    rowsS.on('click', function(e){
         var row = $(this);
-        rows.removeClass('highlight');
-        rows.removeClass('lightlight');
+        rowsS.removeClass('highlight');
+        rowsS.removeClass('lightlight');
         row.addClass('highlight');
     })
-    rows.on('mouseenter', function(e)
+    rowsS.on('mouseenter', function(e)
     {
         var row = $(this);
         if ($(row).hasClass( "highlight" ))
         {
-            rows.removeClass('lightlight');
+            rowsS.removeClass('lightlight');
         }
         else
         {
-            rows.removeClass('lightlight');
+            rowsS.removeClass('lightlight');
             row.addClass('lightlight');
         }
     })
     table = $('#userTable');
-    rows = table.find('tbody tr');
-    rows.on('click', function(e){
+    rowsU = table.find('tbody tr');
+    rowsU.on('click', function(e){
         var row = $(this);
-        rows.removeClass('highlight');
-        rows.removeClass('lightlight');
+        rowsU.removeClass('highlight');
+        rowsU.removeClass('lightlight');
         row.addClass('highlight');
     })
-    rows.on('mouseenter', function(e){
+    rowsU.on('mouseenter', function(e){
         var row = $(this);
         if ($(row).hasClass('highlight')){
-            rows.removeClass('lightlight');
+            rowsU.removeClass('lightlight');
         }
         else
         {
-            rows.removeClass('lightlight');
+            rowsU.removeClass('lightlight');
             row.addClass('lightlight');
         }
     })
