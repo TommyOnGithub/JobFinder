@@ -226,8 +226,12 @@ def results():
             params = 'No Search Found'
         return render_template('results.html', user=ghostUser, results=results, params=params)
     else:
-        params = get_search_params(current_user.id)
-        results = current_user.get_recent_search()
+        try:
+            params = get_search_params(current_user.id)
+            results = current_user.get_recent_search()
+        except TypeError:
+            results = ''
+            params = 'No Search Found'
         return render_template('results.html', user=current_user, results=results, params=params)
 
 
