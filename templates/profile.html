@@ -63,7 +63,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" id="userTitle">Student List:</h4>
+                    {% if user.isAdmin %}
+                        <h4 class="modal-title">User List:</h4>
+                    {% else %}
+                        <h4 class="modal-title">Student List:</h4>
+                    {% endif %}
                 </div>
                 <div class="ModalBody">
                     <div class="text-center">
@@ -74,11 +78,11 @@
                             {% if studentList %}
                             <table id="userTable">
                                 {% for name in studentList %}
-                                <tr>
-                                    <td>
-                                        {{ name.username }}
-                                    </td>
-                                </tr>
+                                    <tr data-user="{{ name.isFaculty }}">
+                                        <td>
+                                            {{ name.username }}
+                                        </td>
+                                    </tr>
                                 {% endfor %}
                             </table>
                             {% endif %}
@@ -87,41 +91,13 @@
                 </div>
                 <div class="text-center">
                     <div class="ModalFooter">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="setFModal" class="modal fade outer" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title" id="setFTitle">Non-Faculty List:</h4>
-                </div>
-                <div class="ModalBody">
-                    <div class="text-center">
-                        <input type="text" class="form-control" placeholder="Username" id="setFFilt">
-                    </div>
-                    <div class="userTable">
                         <div>
-                            {% if studentList %}
-                            <table id="setFTable">
-                                {% for name in studentList %}
-                                <tr>
-                                    <td>
-                                        {{ name.username }}
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </table>
+                            {% if user.isAdmin %}
+                                <button class="btn btn-primary btn-md" id="setFBtn" onclick="showPFaculty()">Set Faculty</button>
+                                <button class="btn btn-primary btn-md" id="delBtn" onclick="deleteTarget()">Delete User</button>
                             {% endif %}
+                            <button class="btn btn-primary btn-md" id="simBtn" onclick="switchUser()">Simulate Student</button>
                         </div>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="ModalFooter">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -199,18 +175,17 @@
             {% if ghost == 0 %}
                 <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
                 <button class="btn btn-primary btn-md" onclick="updateSkills()">Update Skills</button>
-                <button class="btn btn-primary btn-md" onclick="deleteUser()">Delete Account</button>
+                <button class="btn btn-primary btn-md" onclick="deleteSelf()">Delete Account</button>
             {% else %}
                 <button class="btn btn-primary btn-md" onclick="updateProf()" disabled>Update Profile</button>
                 <button class="btn btn-primary btn-md" onclick="updateSkills()" disabled>Update Skills</button>
-                <button class="btn btn-primary btn-md" onclick="deleteUser()" disabled>Delete Account</button>
+                <button class="btn btn-primary btn-md" onclick="deleteSelf()" disabled>Delete Account</button>
             {% endif %}
             {% if user.isAdmin %}
-                <button class="btn btn-primary btn-md" onclick="showPFaculty()">Set Faculty</button>
+                <button class="btn btn-primary btn-md" onclick="showModal()">View Users</button>
                 <button class="btn btn-primary btn-md" onclick="searchStats()">Statistics</button>
-            {% endif %}
-            {% if user.isFaculty %}
-                <button class="btn btn-primary btn-md" onclick="switchUser()">View Students</button>
+            {% elif user.isFaculty %}
+                <button class="btn btn-primary btn-md" onclick="showModal()">View Students</button>
             {% endif %}
         </div>
         <div>

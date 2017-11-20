@@ -24,18 +24,73 @@ function updateSkills(){
     $('#skillModal').modal('show');
 }
 
-function switchUser(){
+function showModal(){
     $('#userModal').modal('show');
 }
 
+function switchUser(){
+    table = $('#userTable');
+    rows = table.find('tbody tr');
+    $(rows).each(function(){
+        var row = $(this);
+        if ($(row).hasClass("highlight")){
+            setUser(row[0].innerText);
+        }
+    });
+}
+
 function showPFaculty(){
-    $('#setFModal').modal('show');
+    table = $('#userTable');
+    rows = table.find('tbody tr');
+    $(rows).each(function(){
+        var row = $(this);
+        if ($(row).hasClass("highlight")){
+            if ($("#setFBtn").text() === "Set Faculty"){
+                setFaculty(row[0].innerText);
+            }
+            else{
+                unsetFaculty(row[0].innerText);
+            }
+        }
+    });
+}
+
+function setFaculty(user){
+    $.post('/setFaculty', {user: user, set:1});
+    $('#userModal').modal('hide');
+    location.reload();
+}
+
+function unsetFaculty(user){
+    $.post('/setFaculty', {user: user, set:0});
+    $('#userModal').modal('hide');
+    location.reload();
+}
+
+function deleteTarget(){
+    table = $('#userTable');
+    rows = table.find('tbody tr');
+    $(rows).each(function(){
+        var row = $(this);
+        if ($(row).hasClass("highlight")){
+            deleteUser(row[0].innerText);
+        }
+    });
 }
 
 function setUser(user){
     $.post('/loginAsUser', {user: user});
     $('#userModal').modal('hide');
     location.reload();
+}
+
+function deleteUser(user){
+    if (confirm("Are you sure you want to delete your account?")){
+        $.post('/deleteTarget', {user: user}, function(){
+            $('#userModal').modal('hide');
+            location.reload();
+        });
+    };
 }
 
 function searchStats(){
@@ -59,13 +114,7 @@ function searchStats(){
     });
 }
 
-function setFaculty(user){
-    $.post('/setFaculty', {user: user});
-    $('#setFModal').modal('hide');
-    location.reload();
-}
-
-function deleteUser(){
+function deleteSelf(){
     if (confirm("Are you sure you want to delete your account?")){
         $.post('/deleteUser');
         window.location.href = 'main';
@@ -95,14 +144,14 @@ function setupClick(){
     rows.on('click', function(e)
     {
         var row = $(this);
-        setUser(row[0].innerText);
-    })
-    table = $('#setFTable');
-    rows = table.find('tbody tr');
-    rows.on('click', function(e)
-    {
-        var row = $(this);
-        setFaculty(row[0].innerText);
+        if (row[0].getAttribute("data-user") == "True"){
+            $('#simBtn').prop("disabled", true);
+            $('#setFBtn').text("Unset Faculty");
+        }
+        else{
+            $("#setFBtn").text("Set Faculty");
+            $('#simBtn').prop("disabled", false);
+        }
     })
 }
 

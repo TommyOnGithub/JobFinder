@@ -45,9 +45,6 @@ def register():
             db.session.flush()
             user.set_password(form.password.data)
             user.skill_id = db.session.query(Skill).filter_by(id=userSkill.id).first().id
-            ###REMOVE TWO FOLLOWING LINES
-            user.isAdmin = 1
-            user.isFaculty = 1
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('login'))
@@ -86,7 +83,7 @@ def logout():
 @login_required
 def profile():
     thisProfile = []
-    studentList = db.session.query(User.username).filter_by(isFaculty=0).all()
+    studentList = db.session.query(User).filter_by(isAdmin=0).all()
     if current_user.ghosting:
         ghostID = current_user.ghosting
         try:
@@ -94,7 +91,11 @@ def profile():
         except AttributeError:
             current_user.ghosting = None
             db.session.commit()
-            profile()
+            thisProfile.insert(0, {'username': current_user.username, 'email': current_user.email,
+                                   'firstName': current_user.firstName, 'lastName': current_user.lastName})
+            skills = getSkillData(current_user.skill_id)
+            return render_template('profile.html', user=current_user, userProfile=thisProfile, skills=skills,
+                                   studentList=studentList, ghost=0)
         thisProfile.insert(0, {'username': ghostUser.username, 'email': ghostUser.email,
                                'firstName': ghostUser.firstName, 'lastName': ghostUser.lastName})
         skills = getSkillData(ghostUser.skill_id)
@@ -129,8 +130,12 @@ def statistics():
 @login_required
 def setFaculty():
     targetUser = request.form.get('user', type=str)
+    status = request.form.get('set', type=int)
     targetUser = db.session.query(User).filter_by(username=targetUser).first()
-    targetUser.isFaculty = 1
+    if status == 1:
+        targetUser.isFaculty = 1
+    else:
+        targetUser.isFaculty = 0
     db.session.commit()
     return 'Faculty Set'
 
@@ -165,6 +170,15 @@ def deleteUser():
     db.session.delete(skill)
     db.session.commit()
     return 'deleted'
+
+@app.route('/deleteTarget', methods=['GET', 'POST'])
+@login_required
+def deleteTarget():
+    targetUser = request.form.get('user', type=str)
+    targetUser = db.session.query(User).filter_by(username=targetUser).first()
+    db.session.delete(targetUser)
+    db.session.commit()
+    return 'Deleted'
 
 @app.route('/main', methods=['GET', 'POST'])
 def main():
@@ -204,11 +218,12 @@ def runMatch():
 def results():
     if current_user.ghosting:
         ghostUser = db.session.query(User).filter_by(id=current_user.ghosting).first()
-        params = get_search_params(ghostUser.id)
         try:
+            params = get_search_params(ghostUser.id)
             results = ghostUser.get_recent_search()
-        except AttributeError:
+        except TypeError:
             results = ''
+            params = 'No Search Found'
         return render_template('results.html', user=ghostUser, results=results, params=params)
     else:
         params = get_search_params(current_user.id)
