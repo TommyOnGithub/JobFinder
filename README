@@ -13,5 +13,5 @@ After refreshing the database, you will need to re-register.
 
 To make an account an admin account, run "sqlite3 jobfind.db"
 and type:
-update user set "isAdmin"=1 where username=<your account's username>
+update user set "isAdmin"=1 where username='<your account's username>'
 
