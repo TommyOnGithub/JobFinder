@@ -85,14 +85,9 @@ body{
 	display:inline-block;
 	position:absolute;
 }
-.picContainer{
-	display:inline-block;
-	float:right;
-}
 .pic{
 	display:inline-block;
 	margin-top:130px;
-	float:right;
 	position:absolute;
 	
 }
