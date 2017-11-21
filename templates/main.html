@@ -108,13 +108,14 @@
     <input type="checkbox" id="jobCheck">
 	</div>
 	
-	
+
+	 
 	<div class="columns">
 		<h1>Majors</h1>
 			<div class="column">
 				<table id="majorTable">
 					{% for major in majors %}
-						<tr>
+						<tr data-desc="{{ major.description }}">
 							<td>{{ major.name }}</td>
 						</tr>
 					{% endfor %}
@@ -128,7 +129,7 @@
 			<div class="row">
 				<table id="jobTable">
 					{% for job in jobs %}
-						<tr>
+						<tr data-desc="{{ job.description }}">
 							<td>{{ job.name }}</td>
 						</tr>
 				{% endfor %}

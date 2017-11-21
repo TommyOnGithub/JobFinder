@@ -71,8 +71,9 @@ function logout(){
     window.location.href = ("logout");
 }
 
-function showInfo(header){
+function showInfo(header,description){
     $('#infoTitle').text(header);
+	$('#description').text(description);
     $('#infoModal').modal('show');
 }
 
@@ -95,7 +96,7 @@ function setupRows(){
         jrows.removeClass('highlight');
         jrows.removeClass('lightlight');
         row.addClass('highlight');
-        showInfo("Degree - " + row[0].innerText);
+        showInfo("Degree - " + row[0].innerText, row[0].getAttribute("data-desc"));
     })
     mrows.on('mouseenter', function(e)
     {
@@ -119,7 +120,7 @@ function setupRows(){
         mrows.removeClass('highlight');
         mrows.removeClass('lightlight');
         row.addClass('highlight');
-        showInfo("Job - " + row[0].innerText);
+        showInfo("Job - " + row[0].innerText, row[0].getAttribute("data-desc"));
     })
     jrows.on('mouseenter', function(e)
     {
