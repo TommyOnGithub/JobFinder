@@ -59,10 +59,22 @@ function setupSearch(){
 }
 
 $(function(){
-    $('#majorCheck').on('click', function(e){
+    $('#majorCheck',).on('click', function(e){
+		if($('#majorCheck').is(':checked')){
+			$('#majorr').show();
+		}
+		else{
+			$('#majorr').hide();
+		}
         $('#searchFilt').keyup();
     })
     $('#jobCheck').on('click', function(e){
+		if($('#jobCheck').is(':checked')){
+			$('#jobss').show();
+		}
+		else{
+			$('#jobss').hide();
+		}
         $('#searchFilt').keyup();
     })
 });
