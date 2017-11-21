@@ -105,38 +105,17 @@
         body {
             font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
             font-size: 12px;
-			
         }
 
-        .g-hed {
-            text-align: left;
+        .g-title {
+            text-align: center;
             text-transform: uppercase;
             font-weight: bold;
             font-size: 20px;
             margin: 3px 0;
-			
-			
         }
 
-        .g-source-bold {
-            text-align: left;
-            font-size: 11px;
-            font-weight: bold;
-            color: #333333;
-			
-        }
-
-        .g-source {
-            margin-bottom: 2px;
-            font-size: 11px;
-            color: #999999;
-        }
-
-        .g-intro {
-            font-size: 18px;
-            margin: 0px 0px 10px 0px;
-            color: #333333;
-        }
+      
 
         .g-num {
             fill: #0074ff;
@@ -150,7 +129,6 @@
             font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
             font-weight: bold;
             font-size: 16px;
-			
         }
 
         .x.axis line, .y.axis line {
@@ -173,15 +151,6 @@
             fill: #000000;
         }
 
-        .logo {
-            border-bottom: 1px solid #c3cddf;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-        }
-
-        .logoImg {
-            width: 185px;
-        }
 
         .g-chart {
             border-bottom: 1px solid #c3cddf;
@@ -189,11 +158,7 @@
     </style>
 
     <body>
-        <div class="logo">
-            <div class="g-source"><span class="g-source-reg"></span><span class="g-source-bold"></span></div>
-        </div>
-        <h5 class="g-hed"></h5>
-        <p class="g-intro"></p>
+        <h5 class="g-title"></h5>
         <div class="g-chart"></div>
     </body>
 
@@ -225,7 +190,7 @@
 
         //console.log(data);
 
-        //Margin conventions
+        //Margin 
         var margin = { top: 10, right: 50, bottom: 20, left: 300 };
 
         var widther = window.outerWidth;
@@ -295,21 +260,8 @@
         console.log(typeof data);
 
 
-       
-
         //Chart headline (question)
-        //AA
         var headline = "Results"
-
-        //Chart state description
-        var stateDescription = ""
-
-        //Timestamp text
-        var timestampText = ""
-
-        //Timestamp time
-        var timestampTime = ""
-
 
         function ready(data) {
 
@@ -319,11 +271,9 @@
                 d.num2 = +d.num2;
             });
 
-            //Appends chart headline
-            d3.select(".g-hed").text(headline);
+            //chart Title
+            d3.select(".g-title").text(headline);
 
-            //Appends chart intro text
-            d3.select(".g-intro").text(stateDescription);
 
             //Sets the max for the xScale
             var maxX = d3.max(data, function (d) { return d.num2; });
@@ -391,7 +341,7 @@
                 })
                 .style("fill", function (d) {
                     if (minX > 32) {
-                        return "white";
+                        return "black";
                     }
                     else {
                         return "#696969";
@@ -399,19 +349,6 @@
                 })
                 .attr("y", y0.rangeBand() / 1.6)
                 .attr("class", "g-labels");
-
-            //Appends timestamp text
-            d3.select(".g-source-reg")
-                .text(timestampText)
-                .attr("class", "g-source-reg");
-
-            //Appends timestamp time
-            d3.select(".g-source-bold")
-                .text(timestampTime)
-                .attr("class", "g-source-bold");
-
-
-
 
             //RESPONSIVENESS
             d3.select(window).on("resize", resized);
