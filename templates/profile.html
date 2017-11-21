@@ -167,15 +167,15 @@
 		<div class="brick" >
             <table>
                 <tbody class="thisProf">
-                    <tr>
-                        <td  class="proCell" class="usrNm"><b class="pull-left">Username:</b>{{ userProfile[0].username }} <img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
-                    </tr>
-                    <tr>
+					<tr>
                         <td  class="proCell" class="FNm"><b class="pull-left">First Name:</b>{{ userProfile[0].firstName }}<img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
                         <td  class="proCell"class="LNm"><b class="pull-left">Last Name:</b>{{ userProfile[0].lastName }}<img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
                     </tr>
                     <tr>
-                        <td  class="proCell" class="Eml"><b class="pull-left">Email:</b><input type="text" class="form-control" placeholder='{{ userProfile[0].email }}' id="proEmail"></td>
+                        <td  class="proCell" class="usrNm"><b class="pull-left">Username:</b>{{ userProfile[0].username }} <img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
+                    </tr>
+                    <tr>
+                        <td  class="proCell" class="Eml"><b class="pull-left">Email:</b><img class ="treee" src="/static/profile/Tree.png" alt="ok"><input type="text" class="form-control" placeholder='{{ userProfile[0].email }}' id="proEmail"></td>
                         <!--<td class="proCell"><b class="pull-left">Password:</b><input type="password" class="form-control" id="proPass"></td>-->
                     </tr>
                 </tbody>
