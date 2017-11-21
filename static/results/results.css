@@ -9,3 +9,50 @@
 a:hover {
  cursor:pointer;
 }
+
+.res{
+	float:left;
+}
+.res{
+	display:inline-block;
+	
+}
+body{
+	background-color:#F8F8F8;
+}
+#resultTable tr{
+	width:800px;
+	height:100%
+	display:inline-block;
+	background-color:#F8F8F8;
+	
+}
+#resultTable td{
+	display:inline-block;
+	padding:7px;
+	font-size:30px;
+	border-style:solid;
+	border-color:black;
+	background-color:#0074FF;
+	color:black;
+	margin:5px;
+	border-radius:15px;
+	border-width:1.5px
+	
+}
+.goRight{
+	float:right;
+}
+.changeParam{
+	display:inline-block;
+	padding:7px;
+	font-size:40px;
+	border-style:solid;
+	border-color:#0074FF;
+	background-color:black;
+	color:#0074FF;
+	margin:5px;
+	border-radius:15px;
+	border-width:1.5px
+	
+}

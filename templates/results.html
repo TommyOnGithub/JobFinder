@@ -97,16 +97,20 @@
     <br/>
     <br/>
     <br/>
+	<div class="res">
+	<div class="changeParam">
     {{ params }}
+	</div>
     <table id="resultTable">
         {% if results %}
             {% for result in results %}
                 <tr>
                     <td>{{ result[0] }}</td>
-                    <td>{{ result[1] }}</td>
+                    <td class="goRight">{{ result[1] }}</td>
                 </tr>
             {% endfor %}
         {% endif %}
     </table>
+	</div>
 </body>
 </html>
