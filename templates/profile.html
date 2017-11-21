@@ -65,14 +65,14 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     {% if user.isAdmin %}
                         <h4 class="modal-title">User List:</h4>
-						<div class="userList">
+						
 							{% else %}
-						</div>
+						
 						
                         <h4 class="modal-title">Student List:</h4>
-						<div class="StuList">
-                    {% endif %}
-						</div>
+						
+							{% endif %}
+						
                 </div>
                 <div class="ModalBody">
                     <div class="text-center">
@@ -129,7 +129,7 @@
                                     <td class="sklName">
                                         {{ name }}
                                     </td>
-                                    <td>
+                                    <td class="sklVal">
                                         {{ val }}
                                     </td>
                                 </tr>
