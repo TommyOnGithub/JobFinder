@@ -4,6 +4,7 @@ from app import app
 import json
 from db_model import db, User, Degree, Job, Skill, SkillNames, Search
 import xml.etree.ElementTree
+from sqlalchemy import and_
 import csv
 
 login_manager = LoginManager()
@@ -83,7 +84,10 @@ def logout():
 @login_required
 def profile():
     thisProfile = []
-    studentList = db.session.query(User).filter_by(isAdmin=0).all()
+    if current_user.isAdmin == 1:
+        studentList = db.session.query(User).filter_by(isAdmin=0).all()
+    else:
+        studentList = db.session.query(User).filter(and_(User.isAdmin == 0, User.isFaculty == 0)).all()
     if current_user.ghosting:
         ghostID = current_user.ghosting
         try:
