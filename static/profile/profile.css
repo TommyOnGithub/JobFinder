@@ -22,10 +22,7 @@
 .margin-text{
     color: #9d9d9d;
 }
-.sklName{
-	padding:2px;
-	margin-left:5px;
-}
+
 a:hover {
  cursor:pointer;
 }.thisProf{
@@ -113,7 +110,7 @@ label {
 	border-width:1.2px;
 	margin-right:150px;
 	float:right;
-	width:80px;
+	width:60px;
 	
 }
 .treee{
