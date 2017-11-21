@@ -406,7 +406,7 @@ def sort_results(resultDict):
     l = list()
     for key in resultDict.iterkeys():
         l.append((key, resultDict[key]))
-    return sorted(l, key=lambda entry: entry[1], reverse=True)
+    return sorted(l, key=lambda entry: entry[1])
 
 def get_search_params(user_id):
     q = db.session.query(db.func.max(Search.search_number)).\
