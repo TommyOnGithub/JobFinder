@@ -71,9 +71,8 @@ function logout(){
     window.location.href = ("logout");
 }
 
-function showInfo(header, description){
+function showInfo(header){
     $('#infoTitle').text(header);
-    $('#description').text(description);
     $('#infoModal').modal('show');
 }
 
@@ -96,7 +95,7 @@ function setupRows(){
         jrows.removeClass('highlight');
         jrows.removeClass('lightlight');
         row.addClass('highlight');
-        showInfo("Degree - " + row[0].innerText, row[0].getAttribute("data-desc"));
+        showInfo("Degree - " + row[0].innerText);
     })
     mrows.on('mouseenter', function(e)
     {
@@ -120,7 +119,7 @@ function setupRows(){
         mrows.removeClass('highlight');
         mrows.removeClass('lightlight');
         row.addClass('highlight');
-        showInfo("Job - " + row[0].innerText, row[0].getAttribute("data-desc"));
+        showInfo("Job - " + row[0].innerText);
     })
     jrows.on('mouseenter', function(e)
     {

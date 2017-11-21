@@ -1,5 +1,5 @@
 .loginInputs{
-    display: inline-block;
+	display:inline-block
 }
 
 td {
@@ -10,6 +10,7 @@ td {
     display: inline-block;
     text-align: center;
     padding-top: 10px;
+	
 }
 
 .floatClear {
@@ -18,10 +19,14 @@ td {
 
 .loginBtn{
     float: left;
-    margin-right: 100px;
+    margin-right: 30px;
+	
 }
-
+.errors{
+	margin-top:13px;
+}
 .regBtn{
+	
     float: left;
 }
 
@@ -36,6 +41,7 @@ footer {
 
 body{
     margin: 0 0 30px;
+	background-size:cover;
 }
 
 html{
@@ -47,3 +53,13 @@ html{
     pointer-events: none;
     opacity: 1;
 }
+h1{
+	font-size:60px;
+	font-family:Serif;
+}
+.rotate{
+	-webkit-transform: rotate(45deg);
+	
+	
+}
+

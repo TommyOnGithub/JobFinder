@@ -157,21 +157,23 @@
     <br/>
     <div class="text-center">
         <div class="proInfo" id="profileInfo">
+		<div class="brick" >
             <table>
                 <tbody class="thisProf">
                     <tr>
-                        <td class="proCell"><b class="pull-left">Username:</b>{{ userProfile[0].username }}</td>
+                        <td  class="proCell" class="usrNm"><b class="pull-left">Username:</b>{{ userProfile[0].username }} <img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
                     </tr>
                     <tr>
-                        <td class="proCell"><b class="pull-left">First Name:</b>{{ userProfile[0].firstName }}</td>
-                        <td class="proCell"><b class="pull-left">Last Name:</b>{{ userProfile[0].lastName }}</td>
+                        <td  class="proCell" class="FNm"><b class="pull-left">First Name:</b>{{ userProfile[0].firstName }}<img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
+                        <td  class="proCell"class="LNm"><b class="pull-left">Last Name:</b>{{ userProfile[0].lastName }}<img class ="treee" src="/static/profile/Tree.png" alt="ok"></td>
                     </tr>
                     <tr>
-                        <td class="proCell"><b class="pull-left">Email:</b><input type="text" class="form-control" placeholder='{{ userProfile[0].email }}' id="proEmail"></td>
+                        <td  class="proCell" class="Eml"><b class="pull-left">Email:</b><input type="text" class="form-control" placeholder='{{ userProfile[0].email }}' id="proEmail"></td>
                         <!--<td class="proCell"><b class="pull-left">Password:</b><input type="password" class="form-control" id="proPass"></td>-->
                     </tr>
                 </tbody>
             </table>
+			
             {% if ghost == 0 %}
                 <button class="btn btn-primary btn-md" onclick="updateProf()">Update Profile</button>
                 <button class="btn btn-primary btn-md" onclick="updateSkills()">Update Skills</button>
@@ -187,28 +189,32 @@
             {% elif user.isFaculty %}
                 <button class="btn btn-primary btn-md" onclick="showModal()">View Students</button>
             {% endif %}
+			
         </div>
-        <div>
+		
+		</div>
+		
+        <div class="skillz">
             {% if skills %}
             <table id="mainSkillTab">
                 {% for name, val in skills.items() %}
                 <tr>
-                    <td>
-                        {{ name }}
+                    <td class="tn">
+                        {{ name }} 
                     </td>
-                    <td>
-                        {{ val }}
+                    <td class="tv">
+                       <img class ="treeee" src="/static/profile/Tree.png" alt="ok"> {{ val }} <img class ="treee" src="/static/profile/Tree.png" alt="ok">
                     </td>
+					
                 </tr>
                 {% endfor %}
             </table>
             {% endif %}
+			
         </div>
+		
     </div>
-<footer>
-    <div class="text-center">
-        <p>Job Finder</p>
-    </div>
-</footer>
+	
+
 </body>
 </html>

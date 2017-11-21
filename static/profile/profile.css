@@ -12,6 +12,7 @@
     padding: 10px;
 }
 
+
 .shorten{
     width: 200px;
     margin-top: -5px;
@@ -25,16 +26,30 @@ a:hover {
  cursor:pointer;
 }
 
-footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 30px;
-    width: 100%;
-}
 
+.thisProf{
+	margin-right:50px;
+}
 body{
-    margin: 0 0 30px;
+    margin:0 0 30;
+	background-position: absolute;
+	background-image:url("http://www.acepaintsfurniture.com/wp-content/uploads/Accent-Red-Brick-Colors.jpg");
+	background-size:550px;
+	background-repeat:repeat-y;
+	background-color:#F8F8F8;
+	
+	}
+.brick{
+	
+	background-color: #F8F8F8;
+	background-image:url("http://pngimg.com/uploads/tree/tree_PNG3498.png");
+	background-size:50px;
+	background-repeat:repeat-y;
+	
+	background-position:top right;
+	margin-left:40px;
+	position:absolute;
+	
 }
 
 html{
@@ -49,3 +64,72 @@ input[type=radio] {
 label {
     display: inline-block;
 }
+
+.skillz{
+	margin-right:100px;
+	float:left;
+}
+#mainSkillTab {
+	position: absolute;
+	display: inline-block;
+	font-size:20px;
+	margin-right:100px;
+}
+#mainSkillTab tr{
+	width:800px;
+	display:inline-block;
+	background-color:#F8F8F8;
+	
+}
+.tn{
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	border-style:solid;
+	border-color:black;
+	background-color:#0098FF;
+	color:black;
+	margin:2px;
+	border-radius:10px;
+	border-width:1.2px;
+	margin-right:150px;
+	float:left;
+	
+	
+}
+.tv{
+	display:inline-block;
+	padding:5px;
+	text-align:center;
+	border-style:solid;
+	border-color:black;
+	background-color:#0098FF;
+	color:black;
+	margin:3px;
+	border-radius:10px;
+	border-width:1.2px;
+	margin-right:150px;
+	float:right;
+	width:80px;
+	
+}
+.treee{
+	position:top right;
+	height:20px;
+	float:right;
+}
+.treeee{
+	position:top right;
+	height:20px;
+	float:left;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+	right:0;
+    height: 30px;
+    width: 100%;
+}
+

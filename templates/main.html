@@ -42,13 +42,11 @@
                             Main
                         </a>
                     </li>
-		    {% if user %}
                     <li>
                         <a href="results">
                             Results
                         </a>
                     </li>
-		    {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <div class="margin-info pull-right">
@@ -80,7 +78,6 @@
                     <h4 class="modal-title" id="infoTitle"></h4>
                 </div>
                 <div class="ModalBody">
-                    <div id="description"></div>
                     {% if user %}
                         <div>
                             <button type="button" class="btn btn-default" onclick="runMatch()">Run Match</button>
@@ -95,31 +92,53 @@
             </div>
         </div>
     </div>
+    
     <br/>
     <br/>
     <br/>
-    <br/>
-    <br/>
-    <div>Search:</div>
+	<img class = "logo" src = "/static/main/Plack.png" alt="ok" width=50% height= 80px>
+    <div><h3 class ="header3">Search:</h1></div>
     <input type="text" id="searchFilt" class="form-control" placeholder="Name to search">
-    <div>Search By:</div>
+    <div> <h4 class="header4">Search By:</h4></div>
+	
+	<div class = "checks">
     <label for="majorCheck">Major:</label>
     <input type="checkbox" id="majorCheck">
     <label for="jobCheck">Job:</label>
     <input type="checkbox" id="jobCheck">
-    <table id="majorTable">
-        {% for major in majors %}
-            <tr data-desc="{{ major.description }}">
-                <td>{{ major.name }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    <table id="jobTable">
-        {% for job in jobs %}
-            <tr data-desc="{{ job.description }}">
-                <td>{{ job.name }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+	</div>
+	
+	
+	<div class="columns">
+		<h1>Majors</h1>
+			<div class="column">
+				<table id="majorTable">
+					{% for major in majors %}
+						<tr>
+							<td>{{ major.name }}</td>
+						</tr>
+					{% endfor %}
+				</table>
+	
+			</div>
+	</div>
+	<div class="rows">
+		<h1 >Jobs</h1>
+		
+			<div class="row">
+				<table id="jobTable">
+					{% for job in jobs %}
+						<tr>
+							<td>{{ job.name }}</td>
+						</tr>
+				{% endfor %}
+				</table>
+				<div class="clr"></div>
+			</div>
+	</div>
+	<div class = "tree"><img src="/static/main/tree.png" alt= "Ok?" height="500px" ></div>
+	<div class = "pic"><img src="/static/main/dep.jpg" alt= "Ok?" height="500px" ></div>
+	
+	
 </body>
 </html>

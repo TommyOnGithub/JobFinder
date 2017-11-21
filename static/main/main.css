@@ -4,8 +4,109 @@
 
 .highlight{background-color: #7498c9;}
 
-.lightlight{background-color: #e6f2ff;}
+.lightlight{background-color: #819AB8;
+
+}
 
 a:hover {
  cursor:pointer;
+ 
+}
+
+.header3{
+	margin-left:10px;
+}
+.header4{
+	margin-left:10px;
+}
+.checks{
+	left:20px;
+	margin-left:20px;
+}
+#searchFilt{
+	width:300px;
+	margin-left:10px;
+	margin-bottom:10px;
+}
+
+#jobTable td{
+	display:inline-block;
+	padding:7px;
+	border-style:solid;
+	border-color:black;
+	background-color:#0074FF;
+	color:black;
+	margin:5px;
+	border-radius:15px;
+	border-width:1.5px;
+}
+#majorTable td{
+	display:inline-block;
+	padding:7px;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+	background-color:#0074FF;
+	color:black;
+	margin:5px;
+	border-radius:15px;
+	border-width:1.5px;
+}
+
+body{
+	background-color:#F8F8F8;
+	background-image: url("http://pngimg.com/uploads/tree/tree_PNG3498.png");
+	background-repeat:no-repeat;
+	background-position: right top;
+	background-size:55%;
+	
+}
+#majorTable{
+	margin:5px;
+	
+}
+#jobTable{
+	margin:5px;
+}
+.rows{float:left;}
+.columns{float:left;}
+.row{
+	float:left;
+	margin-top:10px;
+	margin-right:30px;
+	background-size:100%;
+	background-image:url("http://www.acepaintsfurniture.com/wp-content/uploads/Accent-Red-Brick-Colors.jpg");
+	background-repeat:repeat-y;
+
+	}
+
+.tree{
+	display:inline-block;
+	position:absolute;
+}
+.pic{
+	display:inline-block;
+	margin-top:130px;
+	position:absolute;
+	
+}
+
+.column{
+	float:left;
+	margin-right:80px;
+	margin-left:20px;
+	margin-top:5px;
+background-size:100%;
+	background-image:url("http://www.acepaintsfurniture.com/wp-content/uploads/Accent-Red-Brick-Colors.jpg");
+	background-repeat:repeat-y;
+}
+.logo{
+	margin-left:20px;
+	margin-right:20px;
+}
+.clr{
+	clear:both;
+}
+h1{
+	margin-left:20px;
 }

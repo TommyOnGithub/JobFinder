@@ -25,6 +25,9 @@ footer {
 
 body{
     margin: 0 0 30px;
+	background-image: url("/static/main/nice.jpg");
+	background-repeat:no-repeat;
+
 }
 
 html{
