@@ -116,7 +116,7 @@ def profile():
 @app.route('/loginAsUser', methods=['GET', 'POST'])
 @login_required
 def loginAsUser():
-    if current_user.isFaculty == 0:
+    if current_user.isFaculty == 0 and current_user.isAdmin == 0:
         return
     targetUser = request.form.get('user', type=str)
     targetUser = db.session.query(User).filter_by(username=targetUser).first()
