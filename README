@@ -15,3 +15,12 @@ To make an account an admin account, run "sqlite3 jobfind.db"
 and type:
 update user set "isAdmin"=1 where username='<your account's username>'
 
+
+Created by
+----------
+Todd Newton
+Collin Schmitz
+Alex Sobieraj
+Samuel Bryant
+Diarra Louden
+Thomas Barry
