@@ -42,11 +42,13 @@
                             Main
                         </a>
                     </li>
+		    {% if user%}
                     <li>
                         <a href="results">
                             Results
                         </a>
                     </li>
+		    {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <div class="margin-info pull-right">
@@ -60,8 +62,8 @@
                             <p class="margin-text" align="right"> Guest User
                                 <br/>
                                 <a href="/login">Login</a>
-                                <br/>
-                                <a href="/register">Register</a>
+				<br/>
+				<a href="/register">Register</a>
                                 <br/>
                             </p>
                         {% endif %}
