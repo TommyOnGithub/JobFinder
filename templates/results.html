@@ -101,34 +101,34 @@
     
 
     <style type="text/css">
-        /*css to go here*/
+        
         body {
             font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
-            font-size: 12px;
+            font-size: 13px;
         }
 
-        .g-title {
+        .k-heading {
             text-align: center;
             text-transform: uppercase;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 21px;
             margin: 3px 0;
         }
 
       
 
-        .g-num {
+        .g-gnee {
             fill: #0074ff;
         } 
 
-        .g-num2 {
+        .g-gnee2 {
             fill: #e0e0e0;
         }
 
-        .g-labels {
+        .g-glee {
             font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 17px;
         }
 
         .x.axis line, .y.axis line {
@@ -145,21 +145,21 @@
 
         .y.axis text {
             font-family: 'Proxima-Nova', sans-serif;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
             text-anchor: end !important;
             fill: #000000;
         }
 
 
-        .g-chart {
-            border-bottom: 1px solid #c3cddf;
+        .chart {
+            border-bottom: 2px solid #c3cddf;
         }
     </style>
 
     <body>
-        <h5 class="g-title"></h5>
-        <div class="g-chart"></div>
+        <h5 class="k-heading"></h5>
+        <div class="chart"></div>
     </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
@@ -170,242 +170,167 @@
         var fields = [];
         var numbers = [];
 
-        for (i = 0; i < 13; i++) {
+
+        for (i = 0; i < matches.length; i++) {
             fields[i] = matches[i][0];
             numbers[i] = matches[i][1];
         }
 
-        //console.log(fields);
-       // console.log(numbers);
 
-        //Local data
-        //AA
-        //var data = new Array(fields.length);
+        
+        var dar = [];
 
-        //for (i = 0; i < fields.length; i++) {
-        //    data[i] =
-        //        { "catagory": "Database Administrators", "num": 29, "num2": 100 };
+        for (i = 0; i < matches.length; i++) {
+            dar[i] = { "category": fields[i], "num": numbers[i], "num2": 100 };
                 
-        //}
+        }
 
-        //console.log(data);
+        //dar = dar.filter(function (n) { return n != undefined }); 
 
-        //Margin 
-        var margin = { top: 10, right: 50, bottom: 20, left: 300 };
+        //console.log(dar);
+        
 
-        var widther = window.outerWidth;
+        
+        var marge = { top: 10, right: 50, bottom: 20, left: 300 };
+
+        var width2 = window.outerWidth;
 
         //AAA
         var scaler = 274 + (38 * fields.length);
 
-        var width = widther - margin.left - margin.right,
+        var width = width2 - marge.left - marge.right,
 
             //AAA
-            height = scaler - margin.top - margin.bottom;
+            height = scaler - marge.top - marge.bottom;
 
-        var barHeight = 35;
+        var bHeight = 35;
 
-        //Appends the svg to the chart-container div
-        var svg = d3.select(".g-chart").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+        
+        var svg = d3.select(".chart").append("svg")
+            .attr("width", width + marge.left + marge.right)
+            .attr("height", height + marge.top + marge.bottom)
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            .attr("transform", "translate(" + marge.left + "," + marge.top + ")");
 
-        //Creates the xScale
-        var xScale = d3.scale.linear()
+       
+        var scaleX = d3.scale.linear()
             .range([0, width]);
 
-        //Creates the yScale
-        var y0 = d3.scale.ordinal()
+        
+        var yee = d3.scale.ordinal()
             .rangeBands([height, 0], 0)
 
             //AA
             .domain(fields);
 
-        //Defines the y axis styles
-        var yAxis = d3.svg.axis()
-            .scale(y0)
+        
+        var axisY = d3.svg.axis()
+            .scale(yee)
             .orient("left");
 
-        //Defines the y axis styles
-        var xAxis = d3.svg.axis()
-            .scale(xScale)
+        
+        var axisX = d3.svg.axis()
+            .scale(scaleX)
             .orient("bottom")
-            .tickFormat(function (d) { return d + "%"; })
+            .tickFormat(function (da) { return da + "%"; })
             .tickSize(height);
 
-
-        var data =
-
-            [
-                //{ "category": fields[13], "num": numbers[13], "num2": 100 },
-                { "category": fields[12], "num": numbers[12], "num2": 100 },
-                { "category": fields[11], "num": numbers[11], "num2": 100 },
-                { "category": fields[10], "num": numbers[10], "num2": 100 },
-                { "category": fields[9], "num": numbers[9], "num2": 100 },
-                { "category": fields[8], "num": numbers[8], "num2": 100 },
-                { "category": fields[7], "num": numbers[7], "num2": 100 },
-                { "category": fields[6], "num": numbers[6], "num2": 100 },
-                { "category": fields[5], "num": numbers[5], "num2": 100 },
-                { "category": fields[4], "num": numbers[4], "num2": 100 },
-                { "category": fields[3], "num": numbers[3], "num2": 100 },
-                { "category": fields[2], "num": numbers[2], "num2": 100 },
-                { "category": fields[1], "num": numbers[1], "num2": 100 },
-                { "category": fields[0], "num": numbers[0], "num2": 100 }
-
-            ];
-
-        console.log(data);
-        console.log(typeof data);
-
-
-        //Chart headline (question)
+        
         var headline = "Results"
 
-        function ready(data) {
+        function ready(dar) {
 
-            //FORMAT data
-            data.forEach(function (d) {
-                d.num = +d.num;
-                d.num2 = +d.num2;
+            
+            dar.forEach(function (da) {
+                da.num = +da.num;
+                da.num2 = +da.num2;
             });
 
-            //chart Title
-            d3.select(".g-title").text(headline);
+            
+            d3.select(".k-heading").text(headline);
 
 
-            //Sets the max for the xScale
-            var maxX = d3.max(data, function (d) { return d.num2; });
+           
+            var MAXx = d3.max(dar, function (da) { return da.num2; });
 
-            //Gets the min for bar labeling
-            var minX = d3.min(data, function (d) { return d.num; });
+            
+            var MINx = d3.min(dar, function (da) { return da.num; });
 
-            //Defines the xScale max
-            xScale.domain([0, maxX]);
+            
+            scaleX.domain([0, MAXx]);
 
-            //Appends the y axis
-            var yAxisGroup = svg.append("g")
+            
+            var YaxisGrp = svg.append("g")
                 .attr("class", "y axis")
-                .call(yAxis);
+                .call(axisY);
 
-            //Appends the x axis
-            var xAxisGroup = svg.append("g")
+            
+            var XaxisGrp = svg.append("g")
                 .attr("class", "x axis")
-                .call(xAxis);
+                .call(axisX);
 
-            //Binds the data to the bars
-            var categoryGroup = svg.selectAll(".g-category-group")
-                .data(data)
+            
+            var cgrp = svg.selectAll(".g-c-g")
+                .data(dar)
                 .enter()
                 .append("g")
-                .attr("class", "g-category-group")
-                .attr("transform", function (d) {
-                    return "translate(0," + y0(d.category) + ")";
+                .attr("class", "g-c-g")
+                .attr("transform", function (da) {
+                    return "translate(0," + yee(da.category) + ")";
                 });
 
-            //Appends background bar
-            var bars2 = categoryGroup.append("rect")
-                .attr("width", function (d) { return xScale(d.num2); })
-                .attr("height", barHeight - 1)
-                .attr("class", "g-num2")
+           
+            var bars3 = cgrp.append("rect")
+                .attr("width", function (da) { return scaleX(da.num2); })
+                .attr("height", bHeight - 1)
+                .attr("class", "g-gnee2")
                 .attr("transform", "translate(0,4)");
 
-            //Appends main bar
-            var bars = categoryGroup.append("rect")
-                .attr("width", function (d) { return xScale(d.num); })
-                .attr("height", barHeight - 1)
-                .attr("class", "g-num")
+            
+            var bars2 = cgrp.append("rect")
+                .attr("width", function (da) { return scaleX(da.num); })
+                .attr("height", bHeight - 1)
+                .attr("class", "g-gnee")
                 .attr("transform", "translate(0,4)");
 
-            //Binds data to labels
-            var labelGroup = svg.selectAll("g-num")
-                .data(data)
+            
+            var lblGrp = svg.selectAll("g-gnee")
+                .data(dar)
                 .enter()
                 .append("g")
                 .attr("class", "g-label-group")
-                .attr("transform", function (d) {
-                    return "translate(0," + y0(d.category) + ")";
+                .attr("transform", function (da) {
+                    return "translate(0," + yee(da.category) + ")";
                 });
 
-            //Appends main bar labels
-            var barLabels = labelGroup.append("text")
-                .text(function (d) { return d.num + "%"; })
-                .attr("x", function (d) {
-                    if (minX > 32) {
-                        return xScale(d.num) - 37;
+            
+            var blbl = lblGrp.append("text")
+                .text(function (da) { return da.num + "%"; })
+                .attr("x", function (da) {
+                    if (MINx > 32) {
+                        return scaleX(da.num) - 37;
                     }
                     else {
-                        return xScale(d.num) + 6;
+                        return scaleX(da.num) + 6;
                     }
                 })
-                .style("fill", function (d) {
-                    if (minX > 32) {
+                .style("fill", function (da) {
+                    if (MINx > 32) {
                         return "black";
                     }
                     else {
                         return "#696969";
                     }
                 })
-                .attr("y", y0.rangeBand() / 1.6)
-                .attr("class", "g-labels");
+                .attr("y", yee.rangeBand() / 1.6)
+                .attr("class", "g-glee");
 
-            //RESPONSIVENESS
-            d3.select(window).on("resize", resized);
-
-            function resized() {
-
-                //new margin
-                var newMargin = { top: 10, right: 10, bottom: 20, left: 227 };
-
-
-                //Get the width of the window
-                var w = d3.select(".g-chart").node().clientWidth;
-                console.log("resized", w);
-
-                //Change the width of the svg
-                d3.select("svg")
-                    .attr("width", w);
-
-                //Change the xScale
-                xScale
-                    .range([0, w - newMargin.right - newMargin.left]);
-
-                //Update the bars
-                bars
-                    .attr("width", function (d) { return xScale(d.num); });
-
-                //Update the second bars
-                bars2
-                    .attr("width", function (d) { return xScale(d.num2); });
-
-                //Updates bar labels
-                barLabels
-                    .attr("x", function (d) {
-                        if (minX > 32) {
-                            return xScale(d.num) - 37;
-                        }
-                        else {
-                            return xScale(d.num) + 6;
-                        }
-                    })
-                    .attr("y", y0.rangeBand() / 1.6)
-
-                //Updates xAxis
-                xAxisGroup
-                    .call(xAxis);
-
-                //Updates ticks
-                xAxis
-                    .scale(xScale)
-
-            };
 
         }
 
 
-        //Draw the chart
-        ready(data);
+       
+        ready(dar);
 
 
     </script>
