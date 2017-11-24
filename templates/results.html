@@ -17,8 +17,8 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" dar-target="#navbar"
-                        dar-toggle="collapse" type="button">
+                <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar"
+                        data-toggle="collapse" type="button">
                     <span class="sr-only">
                         Toggle navigation
                     </span>
@@ -75,7 +75,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" dar-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" id="infoTitle"></h4>
                 </div>
                 <div class="ModalBody">
@@ -87,7 +87,7 @@
                 </div>
                 <div class="text-center">
                     <div class="ModalFooter">
-                        <button type="button" class="btn btn-default" dar-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -101,12 +101,13 @@
     
 
     <style type="text/css">
+        /*css to go here*/
         body {
-            font-family: "calibri",Arial,Helvetica,serif;
+            font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
             font-size: 12px;
         }
 
-        .stage {
+        .g-title {
             text-align: center;
             text-transform: uppercase;
             font-weight: bold;
@@ -116,16 +117,16 @@
 
       
 
-        .stage1 {
+        .g-num {
             fill: #0074ff;
         } 
 
-        .stage2 {
+        .g-num2 {
             fill: #e0e0e0;
         }
 
-        .info {
-            font-family: "calibri", Arial, Helvetica,serif;
+        .g-labels {
+            font-family: "Proxima-Nova",Arial,Helvetica,sans-serif;
             font-weight: bold;
             font-size: 16px;
         }
@@ -138,12 +139,12 @@
             display: none;
         }
 
-        .dome {
+        .domain {
             display: none;
         }
 
         .y.axis text {
-            font-family: 'calibri', serif;
+            font-family: 'Proxima-Nova', sans-serif;
             font-size: 16px;
             font-weight: bold;
             text-anchor: end !important;
@@ -151,14 +152,14 @@
         }
 
 
-        .chart {
+        .g-chart {
             border-bottom: 1px solid #c3cddf;
         }
     </style>
 
     <body>
-        <h5 class="stage"></h5>
-        <div class="chart"></div>
+        <h5 class="g-title"></h5>
+        <div class="g-chart"></div>
     </body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
@@ -177,19 +178,19 @@
         //console.log(fields);
        // console.log(numbers);
 
-        //Local dar
+        //Local data
         //AA
-        //var dar = new Array(fields.length);
+        //var data = new Array(fields.length);
 
         //for (i = 0; i < fields.length; i++) {
-        //    dar[i] =
+        //    data[i] =
         //        { "catagory": "Database Administrators", "num": 29, "num2": 100 };
                 
         //}
 
-        //console.log(dar);
+        //console.log(data);
 
-        
+        //Margin 
         var margin = { top: 10, right: 50, bottom: 20, left: 300 };
 
         var widther = window.outerWidth;
@@ -204,30 +205,30 @@
 
         var barHeight = 35;
 
-        
-        var svg = d3.select(".chart").append("svg")
+        //Appends the svg to the chart-container div
+        var svg = d3.select(".g-chart").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        
+        //Creates the xScale
         var xScale = d3.scale.linear()
             .range([0, width]);
 
-       
+        //Creates the yScale
         var y0 = d3.scale.ordinal()
             .rangeBands([height, 0], 0)
 
             //AA
-            .dome(fields);
+            .domain(fields);
 
-       
+        //Defines the y axis styles
         var yAxis = d3.svg.axis()
             .scale(y0)
             .orient("left");
 
-       
+        //Defines the y axis styles
         var xAxis = d3.svg.axis()
             .scale(xScale)
             .orient("bottom")
@@ -235,7 +236,7 @@
             .tickSize(height);
 
 
-        var dar =
+        var data =
 
             [
                 //{ "category": fields[13], "num": numbers[13], "num2": 100 },
@@ -255,89 +256,90 @@
 
             ];
 
-        console.log(dar);
-        console.log(typeof dar);
+        console.log(data);
+        console.log(typeof data);
 
 
-      
+        //Chart headline (question)
         var headline = "Results"
 
-        function ready(dar) {
+        function ready(data) {
 
-          
-            dar.forEach(function (date) {
-                date.num = +date.num;
-                date.num2 = +date.num2;
+            //FORMAT data
+            data.forEach(function (d) {
+                d.num = +d.num;
+                d.num2 = +d.num2;
             });
 
-         
-            d3.select(".stage").text(headline);
+            //chart Title
+            d3.select(".g-title").text(headline);
 
 
-         
-            var maxX = d3.max(dar, function (date) { return date.num2; });
+            //Sets the max for the xScale
+            var maxX = d3.max(data, function (d) { return d.num2; });
 
-            var minX = d3.min(dar, function (date) { return date.num; });
+            //Gets the min for bar labeling
+            var minX = d3.min(data, function (d) { return d.num; });
 
-     
-            xScale.dome([0, maxX]);
+            //Defines the xScale max
+            xScale.domain([0, maxX]);
 
-        
+            //Appends the y axis
             var yAxisGroup = svg.append("g")
                 .attr("class", "y axis")
                 .call(yAxis);
 
-          
+            //Appends the x axis
             var xAxisGroup = svg.append("g")
                 .attr("class", "x axis")
                 .call(xAxis);
 
-       
-            var categoryGroup = svg.selectAll(".cata-group")
-                .dar(dar)
+            //Binds the data to the bars
+            var categoryGroup = svg.selectAll(".g-category-group")
+                .data(data)
                 .enter()
                 .append("g")
-                .attr("class", "cata-group")
-                .attr("transform", function (date) {
-                    return "translate(0," + y0(date.category) + ")";
+                .attr("class", "g-category-group")
+                .attr("transform", function (d) {
+                    return "translate(0," + y0(d.category) + ")";
                 });
 
-           
+            //Appends background bar
             var bars2 = categoryGroup.append("rect")
-                .attr("width", function (date) { return xScale(date.num2); })
+                .attr("width", function (d) { return xScale(d.num2); })
                 .attr("height", barHeight - 1)
-                .attr("class", "stage2")
+                .attr("class", "g-num2")
                 .attr("transform", "translate(0,4)");
 
-         
+            //Appends main bar
             var bars = categoryGroup.append("rect")
-                .attr("width", function (d) { return xScale(date.num); })
+                .attr("width", function (d) { return xScale(d.num); })
                 .attr("height", barHeight - 1)
-                .attr("class", "stage1")
+                .attr("class", "g-num")
                 .attr("transform", "translate(0,4)");
 
-         
-            var labelGroup = svg.selectAll("stage1")
-                .dar(dar)
+            //Binds data to labels
+            var labelGroup = svg.selectAll("g-num")
+                .data(data)
                 .enter()
                 .append("g")
                 .attr("class", "g-label-group")
-                .attr("transform", function (date) {
-                    return "translate(0," + y0(date.category) + ")";
+                .attr("transform", function (d) {
+                    return "translate(0," + y0(d.category) + ")";
                 });
 
-   
+            //Appends main bar labels
             var barLabels = labelGroup.append("text")
-                .text(function (date) { return date.num + "%"; })
-                .attr("x", function (date) {
+                .text(function (d) { return d.num + "%"; })
+                .attr("x", function (d) {
                     if (minX > 32) {
-                        return xScale(date.num) - 37;
+                        return xScale(d.num) - 37;
                     }
                     else {
-                        return xScale(date.num) + 6;
+                        return xScale(d.num) + 6;
                     }
                 })
-                .style("fill", function (date) {
+                .style("fill", function (d) {
                     if (minX > 32) {
                         return "black";
                     }
@@ -346,16 +348,64 @@
                     }
                 })
                 .attr("y", y0.rangeBand() / 1.6)
-                .attr("class", "info");
+                .attr("class", "g-labels");
 
-      
+            //RESPONSIVENESS
             d3.select(window).on("resize", resized);
 
+            function resized() {
+
+                //new margin
+                var newMargin = { top: 10, right: 10, bottom: 20, left: 227 };
+
+
+                //Get the width of the window
+                var w = d3.select(".g-chart").node().clientWidth;
+                console.log("resized", w);
+
+                //Change the width of the svg
+                d3.select("svg")
+                    .attr("width", w);
+
+                //Change the xScale
+                xScale
+                    .range([0, w - newMargin.right - newMargin.left]);
+
+                //Update the bars
+                bars
+                    .attr("width", function (d) { return xScale(d.num); });
+
+                //Update the second bars
+                bars2
+                    .attr("width", function (d) { return xScale(d.num2); });
+
+                //Updates bar labels
+                barLabels
+                    .attr("x", function (d) {
+                        if (minX > 32) {
+                            return xScale(d.num) - 37;
+                        }
+                        else {
+                            return xScale(d.num) + 6;
+                        }
+                    })
+                    .attr("y", y0.rangeBand() / 1.6)
+
+                //Updates xAxis
+                xAxisGroup
+                    .call(xAxis);
+
+                //Updates ticks
+                xAxis
+                    .scale(xScale)
+
+            };
 
         }
 
 
-        ready(dar);
+        //Draw the chart
+        ready(data);
 
 
     </script>
